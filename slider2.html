@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>슬라이더1</title>
+<style>
+* { margin:0; padding:0; }
+body, html { margin:0; padding:0; width:100%; height:100%; }
+ul { list-style:none; }
+a { text-decoration:none; }
+a { color:black; margin:0 20px;}
+.imgSlide {position:relative; width:100%; height:100%; overflow:hidden;  }
+.gallery { position:absolute; width:400%; height:100%; }
+.gallery img { display:block; width:25%; height:auto; position:absolute; }
+.banCon {  background-color:transparent; height:100%;}
+.banTitleBox { width:0%; float:left; height:100%; opacity:0; transition-duration:0.2s, 0.4s; position:absolute; left:0;  top:0;  background-color:transparent;  transition-property:width, opacity; 
+    transition-delay:0.1s, 0.1s; }
+.banTitleBox.on { width:25%; opacity:1; }
+.banTitleBox .banTit { top:30%;  transition-duration:0.6s; opacity:0; transition-delay:0.3s; 
+    left:65%; clear:both; position:absolute; padding-top:70%; }
+.banTitleBox.on .banTit { padding-top:0;  opacity:1; }    
+.banTitleBox .more { display:block;  padding-top:70%;
+    left:65%; top:70%; position:absolute;  opacity:0;
+    color:#fff; clear:both; transition-duration:0.5s; transition-delay:0.3s;  }
+.banTitleBox.on .more { padding-top:0;  opacity:1; }
+.next, .prev, .paging { z-index:999; position:absolute; display:block;
+     width:50px; height:50px; top:10%; background-repeat:no-repeat; 
+    cursor:pointer; }
+.next, .prev { width:58px; height:58px; background-image:url("./source/slide_btn.png"); text-indent:-9999px; }
+.next {right:10%;  background-position:center bottom; }
+.prev {left:10%; background-position:center top; }
+.paging {left:10%;  top:85%; width:200px;  }
+.paging a, .paging button { display:block; margin:5px; float:left; 
+    text-align:center; width:30px; height:30px; line-height:20px; 
+    border:0; outline:0; background-color:transparent; 
+    background-repeat:no-repeat; background-color:#333; color:#fff; 
+    line-height:30px; font-size:14px;  cursor:pointer; 
+    border-radius:16px; }
+.paging a { border:3px solid #fff; width:24px; height:24px; 
+    background-color:transparent; text-indent:-9999px; }
+.paging a.paging_on { background-color:#2c7eb0; 
+    border:0; width:30px; height:30px; }
+.playBtn { background-image:url("./source/btn_autostop.png"); }
+.playBtn[control-toggle="play"] { background-position:center 10px; }
+.playBtn[control-toggle="stop"] { background-position:center -30px; }
+</style>
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+<script src="ktslider2.js"></script>
+<script src="txtslider2.js"></script>
+</head>
+<body>
+   
+    <div class="imgSlide" id="visual">
+        <p class="prev">prev</p>
+        <p class="next">next</p>
+        <div class="gallery">
+            <img src="./img/vs1.jpg" class="banImg" alt="배너1">
+            <img src="./img/vs1.jpg" class="banImg" alt="배너1">
+            <img src="./img/vs2.jpg" class="banImg" alt="배너2">
+            <img src="./source/vs3.jpg" class="banImg" alt="배너3">
+            <!-- <img src="http://placehold.it/300x200&text=4"> -->
+        </div>
+        <ul class="banCon">
+            <li class="banTitleBox">
+                <h2 class="banTit"></h2>
+                <a href="" class="more">더 보기 ></a>
+            </li>
+            <li class="banTitleBox">
+                <h2 class="banTit">A MORE <br/>Beautiful World</h2>
+                <a href="" class="more">더 보기 ></a>
+            </li>
+            <li class="banTitleBox">
+                <h2 class="banTit">
+                    <img src="./source/vs2Title.png" alt="">
+                </h2>
+                <a href="" class="more">더 보기 ></a>
+            </li>
+            <li class="banTitleBox">
+                <h2 class="banTit"></h2>
+                <a href="" class="more">더 보기 ></a>
+            </li>
+        </ul>
+        <p class="paging"></p>
+    </div>
+</body>
+</html>

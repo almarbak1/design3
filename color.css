@@ -1,0 +1,19 @@
+/* color.css  */
+@charset "utf-8";
+.bg1 { background:#005295; }
+.bg2 { background:#f1f1f1; }
+.bg3 { background:#ea7187; }
+.bg4 { background:#000000; }
+.bg5 { background:#e1e2e6; }
+.bg6 { background:#555555; }
+.bg7 { background:#456c43; }
+.bg8 { background:#ebebeb; }
+.tc1 { background:#555555; }
+.tc2 { background:#f1f1f1; }
+.tc3 { background:#111111; }
+.tc4 { background:#000000; }
+.tc5 { background:#005295; }
+.tc6 { background:#ffabba; }
+.tc7 { background:#d2415b; }
+.tc8 { background:#aeaeaf; }
+.colorCode { text-align:center; line-height:48px; font-weight: bold; }

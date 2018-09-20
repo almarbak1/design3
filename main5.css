@@ -1,0 +1,91 @@
+#main_inner {width: 1500px; margin: 0 auto; display: block;position: relative;}
+.mainBlock {margin-top: 100px; position: relative;}
+.mid_banner ul {font-size: 0;margin: 0; padding: 0;}
+.mid_banner ul.col2 li {width: 49.5%;}
+.mid_banner ul li {display: inline-block;color: #fff; position: relative;}
+.mid_banner ul.col2 .over {top: 40%;}
+.mid_banner .over {position: absolute;text-align: center;width: 100px;z-index: 1;}
+.mid_banner ul.col2 .over .e_title {font: 49px Fenix; line-height: 49px;}
+.mid_banner .over span {display: block;}
+.mid_banner ul.col2 .over .h_title {font: 29px; letter-spacing: -1px; font-weight: 500; line-height: 29px;}
+.mid_banner .over span{display: block;}
+.mid_banner ul.col2 .over .btn {margin-top: 30px;}
+.mid_banner .over .btn a {border: 2px solid #fff;letter-spacing: 1px;}
+.buttonPro {background: none;color: #fefefc;border: 2px solid #fefefc;}
+.buttonPro.transtw {background: none;color: #fefefc;border: 2px solid #fefefc;}
+.buttonPro.xlarge {padding: 20px 30px;font-size: 15px;}
+.buttonPro.large {padding: 15px 20px;font-size: 12px;}
+.buttonPro.xrounded {border-radius: 50px;}
+.buttonPro {margin: 0 3px;vertical-align: middle;display: inline-block;text-decoration: none;outline: none;cursor: pointer;font-size: 12px;padding: 8px 11px 10px;color: #555;background: #fff;font-family: "Noto Sans KR";font-weight: 500;transition: background-color 0.3s;}
+.mid_banner ul li .thumb {width: 100%;background: #000;}
+.mid_banner ul li .thumb img {width: 100%;opacity: 0.85;}
+img{vertical-align: top;}
+.thumb {display: block;text-align: center;}
+div:after, ul:after, li:after {content: '';display: block;clear: both;}
+
+.mid_banner ul.col3 li.sep, .mid_banner ul.col2 li.sep {width: 1%;background: none;}
+
+
+.mid_banner ul.col3{margin-top: 1%;}
+.mid_banner ul.col3 li {width: 32.66666%;}
+.mid_banner ul.col3 .over {top: 35%;}
+.mid_banner ul.col3 .over .e_title {font: 42px Fenix;line-height: 42px;}
+.mid_banner ul.col3 .over .h_title {font: 25px Noto Sans KR;letter-spacing: -1px;font-weight: 500;line-height: 25px;}
+.mid_banner ul.col3 .over .btn {margin-top: 25px;}
+.mid_banner ul.col3 li.sep, .mid_banner ul.col2 li.sep {width: 1%;background: none;}
+.mid_banner ul.col3 .over .e_title {font: 42px Fenix;line-height: 42px;}
+.mid_banner ul.col3 .over .h_title {font: 25px Noto Sans KR;letter-spacing: -1px;font-weight: 500;line-height: 25px;}
+.mid_banner ul.col3 .over .btn {margin-top: 25px;}
+
+.mainbanner { width: 100%; position: relative; }
+.mainbanner .slider li { text-align: center; }
+.mainbanner .slider li .bg img { width: 100%; max-width: 2000px; }
+.mainbanner .slider li div.txt { display: block; position: absolute; z-index: 9999; }
+.mainbanner .slider li div.txt.center { top: 50%; left: 50%; margin-left: -250px; margin-top: -110px; }
+.mainbanner .slider li .btn { margin-top: 37px; }
+
+
+.mainbanner .bx-wrapper .bx-prev { left: 20px; background: url("/design/pinkagewig/renewal/img/mprev_w.png") no-repeat; z-index: 9999; }
+.mainbanner .bx-wrapper .bx-next { right: 20px; background: url("/design/pinkagewig/renewal/img/mnext_w.png") no-repeat; z-index: 9999; }
+
+
+/* ¸ÞÀÎ ÀüÃ¼*/ 
+#mainwrap { width: 100%; margin: 0 auto; display: block; position: relative; }
+#mainwrap .main_inner { width: 1500px; margin: 0 auto; display: block; position: relative; }
+#mainwrap h3 { text-align: center; font: 22px Fenix; letter-spacing: 3px; margin-bottom: 43px; }
+#mainwrap .community.review_area h3 { text-align: center; font: 22px Fenix; letter-spacing: 3px; margin-bottom: 30px; }
+#mainwrap .community.review_area .sub_menu { margin-bottom:13px; } 
+#mainwrap .dum { width: 100%; height: 700px; border: 1px solid #ddd; font-size: 22px; color: #ddd; }
+#mainwrap .mainBlock { margin-top: 100px; position: relative; }
+#mainwrap .mainBlock.community.review_area { margin-top: 75px; }
+#mainwrap .mainBlock.community.review_area > .dum{min-height:700px}
+#mainwrap .review_area { background-color: #f5f4f6;  width:100%; padding-top:50px; }
+
+/* ¸ÞÀÎÅÇ*/ 
+.tab1 { margin-top: 130px; position:relative;}
+.tabs { }
+.tab1 a.btn { position:absolute; right:10px; top:12px; padding:10px 18px; font-size:13px; border:1px solid #bbb;    }
+.tabs ul.tab_cate { }
+.tabs ul.tab_cate li { display: inline; }
+.tabs ul.tab_cate li a { display: inline-block; }
+/* ¸ÞÀÎ Áß°£¹è³Ê*/ 
+.mid_banner { }
+.mid_banner ul { font-size: 0; margin: 0; padding: 0 }
+.mid_banner ul li { display: inline-block; color: #fff; position: relative; }
+.mid_banner ul.col3 li.sep, .mid_banner ul.col2 li.sep { width: 1%; background: none; }
+.mid_banner ul.col2 li { width: 30.5%; }
+.mid_banner ul.col3 li { width: 23.66666%; }
+.mid_banner ul.col3 { margin-top: 1%; }
+.mid_banner ul li .thumb { width: 100%; background: #000; }
+.mid_banner ul li .thumb img { width: 100%; opacity: 0.85; }
+.mid_banner .over .btn a { border: 2px solid #fff; letter-spacing: 1px; }
+.mid_banner .over span { display: block; }
+.mid_banner .over { position: absolute; text-align: center; width: 100%; z-index: 1; }
+.mid_banner ul.col2 .over { top: 40%; }
+.mid_banner ul.col3 .over { top: 35%; }
+.mid_banner ul.col2 .over .e_title { font: 49px Fenix; line-height: 49px; }
+.mid_banner ul.col2 .over .h_title { font: 29px Noto Sans KR; letter-spacing: -1px; font-weight: 500; line-height: 29px; }
+.mid_banner ul.col2 .over .btn { margin-top: 30px; }
+.mid_banner ul.col3 .over .e_title { font: 42px Fenix; line-height: 42px; }
+.mid_banner ul.col3 .over .h_title { font: 25px Noto Sans KR; letter-spacing: -1px; font-weight: 500; line-height: 25px; }
+.mid_banner ul.col3 .over .btn { margin-top: 25px; }

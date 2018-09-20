@@ -1,0 +1,29 @@
+/* typo.css */
+@charset "utf-8";
+.fnt1 { font-family: "AritaBuri",'Malgun Gothic','ë§‘ì€ ê³ ë”•', HelveticaNeue,AppleSDGothicNeo,Arial,sans-serif; }
+.fnt2 { font-family:"AritaDotumSB", sans-serif; } 
+.fnt3 { font-family:'AritaDotumM', sans-serif; } 
+.fnt4 { font-family:'AritaHeitiB', 'AritaSansB', sans-serif;}
+.fnt5 { font-family:'AritaSansB', sans-serif; }
+.fnt6 { font-family: 'AritaSansT', sans-serif; }
+.fnt7 { }    
+.tit1 {  text-align:left; font-size:120px; color:#333;        
+letter-spacing:-5px; line-height:120px; padding:15px; 
+    font-weight:700; }
+.tit2 { font-size: 1.4583vw;  font-size: 2.8rem;
+line-height:1;    color: #005295;    margin-top: 1.6rem;}
+.tit3 { font-size: 3.6458vw;    line-height: 1.28;
+letter-spacing: -.025em;    color:#111; font-weight:800; 
+margin-top: 0.3em;    margin-left: -0.05em; }
+.tit4 { font-size:28px;    color: #1f1f1f;    text-align: left;
+margin-bottom: 15px;}
+.tit5 { font-size:64px;    color: #111;    line-height: 1.12857;
+margin-top: 10px;    text-align: left; font-weight:900; }
+.tit6 { font-size:70px;    line-height: 90px;
+color: #111;    text-align: left;    letter-spacing: -1px; }    
+.com1 { line-height:1.66;    font-size: 1.8rem;
+color: #555;    margin-top: 1em;  }
+.com2 { line-height:1.66;    font-size:14px;
+color:#005295;    padding-top:10px;  }
+.com3 { line-height:1.66;    font-size:12px;
+color:#ea7187;    padding:10px;  }

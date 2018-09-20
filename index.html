@@ -1,0 +1,1293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>아모레</title>
+    <link rel="stylesheet" href="collap.css">
+    <link rel="stylesheet" href="fonts.css">
+    <link rel="stylesheet" href="color.css">
+    <link rel="stylesheet" href="typo.css">
+    <link rel="stylesheet" href="icon.css">
+    <link rel="stylesheet" href="main5.css">
+    <link rel="stylesheet" href="common.css">
+
+ 
+    <style>
+    .opener { display:block; width:70px; height:70px; 
+        background-color:#efbdc6; background-position:center center;
+        background-image:url("./img/btn_opener.png"); cursor:pointer; 
+        background-repeat:no-repeat; float:left; margin-top:40px; }
+    .logo { display:block; width:128px; height:64px; 
+        background-image:url("./img/h_logo.png"); background-repeat: no-repeat; background-size: 128px auto; float: left; margin-left: 25px; margin-top: 40px;}
+    .hd.active .opener { margin-top:20px; width:48px; height:48px; }
+    .hd.active .logo { background-position:center top; margin-top:30px; 
+        width:84px; height:42px; background-size:84px auto; }
+    .logo.w { background-position:center bottom; }
+    .logo.b { background-position:center top; }
+    .ckItem { display:none; }
+    #collapMenu { position:fixed; top:0; left:-710px; z-index:1001; 
+        transition:0.6s; background:#fff; 
+        width:700px; height:600px; }
+    #menu_ck:checked ~ #collapMenu { left:0; }   
+    .mainMenu { float:right; }
+    .mainMenu ul { clear:both; float:right; padding:5px; margin-top:15px; 
+        padding-top:15px; }
+    .mainMenu li { float:left; padding:5px; margin-left:20px; }
+    .mainMenu a { color:#fff;  font-family:'AritaDotumL', sans-serif;
+        font-size:16px; font-weight:300; }
+    .hd.active .mainMenu a { color:#333; }
+    .mainMenu .tnb { display:block; }
+    .hd.active .mainMenu .tnb { display:none; }
+    .mainMenu .tnb li:first-child a:after { content:"|"; padding-left: 25px; }
+    .mainMenu .tnb li:last-child a { color:#999; }
+    .mainMenu .gnb a { font-family:'AritaDotumB', sans-serif; }
+    .mainMenu .gnb a:hover { color:#58bdfb;  text-decoration:underline; }
+    .close { display:block; background-image: url("./img/btn_close.png"); background-repeat: no-repeat; 
+        background-position: center center; width:50px; height:50px; 
+        position:absolute; top:55px; left:50px; cursor:pointer; }
+    #collapMenu .logo { margin-left:120px; }
+    .colMenu { clear:both; margin-left:120px; padding-top:70px; }    
+    .colMenu li { height:70px; line-height:70px; position:relative; }
+    .colMenu a { display:block; line-height:70px; color:#333;
+        font-family: 'AritaBuri', sans-serif; font-weight:900; 
+        font-size:24px; }
+    .colMenu a:hover { color:#005295; }
+    .colSub { position:absolute; left:265px; z-index:1020; display:none; 
+        top:-60px; }
+    .colSub:before { content:" "; display:block; width:90px; height:60px; position:absolute; left:-100px; background-image:url("./colSub_line1.png"); top:32px; }
+    .colMenu li:hover .colSub {display:block; }
+    .colMenu li .colSub li { height:40px; line-height:40px;} 
+    .colMenu .colSub a { font-size:18px; }    
+    .colMenu .colSub a:hover { text-decoration:underline; }
+    </style>
+    <style>
+        /* section0 Visual */
+#section0 {position:relative;overflow: hidden;}
+.main_visual_slick,
+.main_visual_slick .slider,
+.main_visual_slick .slick-list,
+.main_visual_slick .slick-list .slick-track {height:100%;}
+.main_text_area, .main_image_area {display: block;padding: 0 16.66%;opacity: 0;-webkit-transition: all .8s 1s;-o-transition: all .8s 1s;transition: all .8s 1s;vertical-align:middle;top: 50%;position: absolute;-webkit-transform: translate(0,-50%);-ms-transform: translate(0,-50%);transform: translate(0,-50%);margin-top: 20px;}
+.loaded .slick-active .main_text_area, .loaded .slick-active .main_image_area {opacity:1;margin-top: 0;}
+#section0 .btn_play{display:inline-block;margin-top:2vw}
+.fp-enabled #section0 .btn_play {/* position:absolute; *//* top:66vh; */}
+.fp-enabled .oninspect #section0 .btn_play {/* position:absolute; *//* top:calc(66vh - 110px); */}
+.sec0_bg_01 {/* display: table-cell !important; */position:relative;min-width:360px;height:100%;background-position: center center;background-repeat:no-repeat;background-size:cover;}
+.main_text_area .tit_slogan, .main_image_area .tit_slogan {text-align:left;font-size:120px;color:#fff;letter-spacing:-5px;line-height:120px;}
+.main_text_area .tit_small {margin: 2rem 0 0 0;text-align:left;color:#fff;font-size:30px;letter-spacing: -.025em;line-height:50px;-webkit-line-clamp: 5;overflow: hidden;display: -webkit-box;-webkit-box-orient: vertical;}
+.main_text_area .tit_small pre {margin:0;line-height: 1.33;}
+.main_text_area a, .main_image_area a {opacity:0;-webkit-transition: opacity .8s 1.5s;-o-transition: opacity .8s 1.5s;transition: opacity .8s 1.5s;}
+.loaded .slick-active .main_text_area a, .loaded .slick-active .main_image_area a { opacity:1; }
+.btn_more {margin: 3rem 0 0 0;padding:0;height:2.5%;border-bottom:1px solid #fff;font-family:'dotumM';display:inline-block;color:#fff;font-size:18px;}
+.btn_scroll{position:absolute; left:16.66%; bottom:5.56%;}
+.btn_scroll span {
+    display: inline-block; font-size: 0; line-height: 0; text-indent: -9999px; vertical-align: top; width: 30px; height: 45px;
+    background: url(./img/main/spritely_mouse_x2.png) no-repeat; background-size: 300px 45px; overflow:hidden;}
+.main_visual_slick .slider {margin:0;}
+.main_visual_slick .slick-arrow {width:58px; height:58px; z-index:1;}
+.main_visual_slick .slick-prev:hover,
+.main_visual_slick .slick-prev:focus,
+.main_visual_slick .slick-prev{background:url(./img/slide_btn.png) no-repeat center top; left:8.33%; background-size:100% auto;}
+.main_visual_slick .slick-next:hover,
+.main_visual_slick .slick-next:focus,
+.main_visual_slick .slick-next{background:url(./img/main/slide_btn.png) no-repeat center bottom; right:8.33%; background-size:100% auto;}
+.main_visual_slick .slick_nav {position:absolute;bottom: 6.5%;width:100%;z-index:1;font-size:0;line-height:0;text-align:center;}
+.main_visual_slick .slick_nav .slick_nav_dot {display:inline-block;}
+.main_visual_slick .slick_nav .slick-dots {display:inline-block; position:static;}
+.main_visual_slick .slick_nav .slick-dots li {width:10px;height:10px;margin: 0;}
+.main_visual_slick .slick_nav .slick-dots li + li { margin-left:10px; }
+.main_visual_slick .slick_nav .slick-dots li button {border:1px solid #fff; border-radius:50%; width:10px; height:10px; padding:0;}
+.main_visual_slick .slick_nav .slick-dots li button:before {width:10px; height:10px;}
+.main_visual_slick .slick_nav .slick-dots li.slick-active button {background:#fff;}
+.main_visual_slick .slick_nav .slick_pause {display:inline-block;margin:-2px 0 0 10px; width:12px; height:12px; text-indent:-9999px; background:url(./img/btn_autostop.png) no-repeat center top; border:0 none;}
+.main_visual_slick .slick_nav .slick_pause.on {background-position:center bottom;}
+.sns_slide_wrap{width:489px; height:240px; position:absolute; z-index:1; bottom:0; right:160px;}
+.sns_slide_wrap .slick-arrow:hover,
+.sns_slide_wrap .slick-arrow:focus,
+.sns_slide_wrap .slick-arrow {position:absolute; left:auto; z-index:1; -webkit-transform:none; -ms-transform:none; transform:none; background:url(./img/btn_sns2.png) no-repeat}
+.sns_slide_wrap .slick-prev:hover,
+.sns_slide_wrap .slick-prev:focus,
+.sns_slide_wrap .slick-prev {top:12px;right:50px;width:28px;height:28px;}
+.sns_slide_wrap .slick-next:hover,
+.sns_slide_wrap .slick-next:focus,
+.sns_slide_wrap .slick-next {top:12px;right:12px;width:28px;height:28px; background-position:bottom;}
+.sns_slide_wrap .slick_nav {position:absolute; bottom:13px; z-index:1; text-align:left; padding-left:50px;font-size:0; line-height:0;}
+.sns_slide_wrap .slick_nav .slick_nav_dot {float:left; }
+.sns_slide_wrap .slick_nav .slick-dots {position:static;}
+.sns_slide_wrap .slick_nav .slick-dots li {width:8px; height:8px;}
+.sns_slide_wrap .slick_nav .slick-dots li button {border:1px solid #fff; border-radius:50%; width:8px; height:8px; padding:0;}
+.sns_slide_wrap .slick_nav .slick-dots li button:before {width:8px; height:8px;}
+.sns_slide_wrap .slick_nav .slick-dots li.slick-active button {background:#fff;}
+.sns_slide_wrap .slick_nav .slick_pause {margin:-2px 0 0 10px; width:12px; height:12px; text-indent:-9999px; background:url(./img/btn_autostop.png) no-repeat center top; border-radius:0; border:0 none;}
+.sns_slide_wrap .slick_nav .slick_pause.on {background-position:center bottom;}
+    </style>
+     <style>    
+    .imgSlide { position:relative; width:100%; height:100%; overflow:hidden;  }
+    .gallery { position:absolute; width:400%; height:100%; }
+    .gallery img { display:block; width:25%; height:100%; position:absolute; }
+    .banCon {  background-color:transparent; height:100%;}
+    .banTitleBox { width:0%; float:left; height:100%; opacity:0; transition-duration:0.2s, 0.4s; position:absolute; left:0;  top:0;  background-color:transparent;  transition-property:width, opacity; 
+        transition-delay:0.1s, 0.1s; }
+    .banTitleBox.on { width:25%; opacity:1; }
+    .banTitleBox .banTit { top:30%;  transition-duration:0.6s; opacity:0; transition-delay:0.3s; 
+        left:65%; clear:both; position:absolute; padding-top:70%; }
+    .banTitleBox.on .banTit { padding-top:0;  opacity:1; }    
+    .banTitleBox .more { display:block;  padding-top:70%;
+        left:65%; top:70%; position:absolute;  opacity:0;
+        color:#fff; clear:both; transition-duration:0.5s; transition-delay:0.3s;  font-size:16px; font-family:'AritaHeitiB', sans-serif;}
+    .banTitleBox.on .more { padding-top:0;  opacity:1; }
+    .next, .prev, .paging { z-index:999; position:absolute; display:block;
+         width:50px; height:50px; top:30%; background-repeat:no-repeat; 
+        cursor:pointer; }
+    .next, .prev { width:58px; height:58px; background-image:url("./img/slide_btn.png"); text-indent:-9999px; }
+    .next {right:10%;  background-position:center bottom; }
+    .prev {left:10%; background-position:center top; }
+    .paging {left:10%;  top:85%; width:200px;  }
+    .paging a, .paging button { display:block; margin:5px; float:left; 
+        text-align:center; width:30px; height:30px; line-height:20px; 
+        border:0; outline:0; background-color:transparent; 
+        background-repeat:no-repeat; background-color:#333; color:#fff; 
+        line-height:30px; font-size:14px;  cursor:pointer; 
+        border-radius:16px; }
+    .paging a { border:3px solid #fff; width:24px; height:24px; 
+        background-color:transparent; text-indent:-9999px; }
+    .paging a.paging_on { background-color:lightpink; 
+        border:0; width:30px; height:30px; }
+    .playBtn { background-image:url("./img/btn_autostop.png"); }
+    .playBtn[control-toggle="play"] { background-position:center 10px; }
+    .playBtn[control-toggle="stop"] { background-position:center -30px; }    
+    
+    #smallBan1 { position:absolute; bottom:0; right:10%;
+        z-index:1000; width:489px; height:240px; overflow:hidden; }
+    .imgSlide2 { position:relative; width:100%; height:100%; overflow:hidden;  }
+    .gallery2 { position:absolute; width:400%; height:100%; }
+    .gallery2 img { display:block; width:25%; height:100%; position:absolute; }
+    .next2, .prev2, .paging2 { z-index:999; position:absolute; display:block;      width:50px; height:50px; top:7%; background-repeat:no-repeat; 
+        cursor:pointer; }
+    .next2, .prev2 { width:28px; height:28px; background-image:url("./img/btn_sns2.png"); text-indent:-9999px; }
+    .next2 {right:5%;  background-position:center bottom; }
+    .prev2 {right:15%; background-position:center top; }
+    .paging2 {left:10%;  top:85%; width:200px;  }
+    .paging2 a, .paging2 button { display:block; margin:5px; float:left; 
+        text-align:center; width:16px; height:16px; line-height:20px; 
+        border:0; outline:0; background-color:transparent; 
+        background-repeat:no-repeat; background-color:#333; color:#fff; 
+        line-height:30px; font-size:14px;  cursor:pointer; 
+        border-radius:10px; }
+    .paging2 a { border:3px solid #333; width:10px; height:10px; 
+        background-color:transparent; text-indent:-9999px; }
+    .paging2 a.paging_on2 { background-color:#2c7eb0; 
+        border:0; width:16px; height:16px; }
+    .playBtn2 { background-image:url("./img/btn_autostop.png"); 
+        background-size:50% auto;}
+    .playBtn2[control-toggle="play"] { background-position:center 4px; }
+    .playBtn2[control-toggle="stop"] { background-position:center -21px; } 
+    </style>
+<!--    page2-->
+    <style>
+    #page2 { overflow:hidden; height:100%; }    
+    #page2 .pageWrap { width:1200px; height:100%; margin:0 auto; }
+    .raItem { display:none; }
+    #vsBn1 { padding:180px 50px; }
+    .vsBnFrame { width:14000px; margin-left:0; transition:0.9s; }
+    .vsBnFrame li { width:1200px; height:421px; float:left;
+        position:relative; display:table;   min-width:1200px; margin:0px; padding-left:120px;  transform:scale(0.65); opacity:0.7; transition:0.9s; box-sizing:border-box; }
+    .banFrame { width:527px; height:421px; float:left;  }
+    .banFrame img { display:block; width: 100%; height:auto;}
+    .txt_wrap { width:281px; height:421px; float:left; margin-left:50px;}
+    .p_index { font-family:'AritaDotumSB', sans-serif; 
+    font-size:24px; line-height:1; color:#005295; margin-top:1.6rem; }
+    .p_date { font-size:12px; color:#555; margin-top:2em; }
+    .p_tit { font-family:'AritaBuri', sans-serif; font-size: 3.6458vw;
+        line-height:1.28; letter-spacing:-0.025em; color:#111;
+        margin-top:0.3em; margin-left: -0.05em; font-weight:900; }
+    .p_text { font-size:14px; line-height:1.66; color:#555; margin-top:1em; padding-left:40px; }
+    .p_text:before { content:" "; display: block; position:absolute;
+        border-top:1px solid #205997; width:200px; left:44%;
+        margin-top:0.8em; }
+    .btn_more2 { font-size:14px;  color:#111;  margin-top:1.6em;
+        margin-left:3.7em; border-bottom:1px solid #111; 
+        display:inline-block;    line-height:1.1; }
+    .lrBtnFrame { position:absolute; left:0; z-index:999; 
+        top:0; width:14000px; height:400px; }
+    .lrBtnFrame li { float:left; width:1200px; position:relative; height: 421px; }
+    .lrBtnFrame li label { display:block; width:58px; cursor:pointer; 
+        height:58px; background-position:center center; z-index:999;
+        background-repeat:no-repeat; position:absolute; top:350px;
+        display:none; }
+    .lrBtnFrame li label.left {background-image:url("./img/slide_btn_left.png");left: 250px;}
+    .lrBtnFrame li label.right {background-image:url("./img/slide_btn_right.png");right: -400px;}
+    #banRa01:checked ~ .lrBtnFrame .item1 label { display:block; }
+    #banRa02:checked ~ .lrBtnFrame .item2 label { display:block; }
+    #banRa03:checked ~ .lrBtnFrame .item3 label { display:block; }
+    #banRa04:checked ~ .lrBtnFrame .item4 label { display:block; }
+    #banRa05:checked ~ .lrBtnFrame .item5 label { display:block; }
+    #banRa06:checked ~ .lrBtnFrame .item6 label { display:block; }
+    #banRa07:checked ~ .lrBtnFrame .item7 label { display:block; }
+    #banRa08:checked ~ .lrBtnFrame .item8 label { display:block; }
+    #banRa01:checked ~ .lrBtnFrame { margin-left:0px; }
+    #banRa02:checked ~ .lrBtnFrame { margin-left:-1200px; }
+    #banRa03:checked ~ .lrBtnFrame { margin-left:-2400px; }
+    #banRa04:checked ~ .lrBtnFrame { margin-left:-3600px; }
+    #banRa05:checked ~ .lrBtnFrame { margin-left:-4800px; }
+    #banRa06:checked ~ .lrBtnFrame { margin-left:-6000px; }
+    #banRa07:checked ~ .lrBtnFrame { margin-left:-7200px; }
+    #banRa08:checked ~ .lrBtnFrame { margin-left:-8400px; }
+        
+    .numBtnFrame { position:absolute; bottom:150px; width:240px; left:460px; z-index:999; height:50px; }
+    .numBtnFrame li { float:left; padding:10px; }    
+    .numBtnFrame li label { display:block; width:8px; height:8px; 
+        border-radius:5px; border:1px solid #005295; cursor:pointer; }
+    #banRa01:checked ~ .numBtnFrame .item1 label {
+        background-color:#005295; }
+    #banRa02:checked ~ .numBtnFrame .item2 label {
+        background-color:#005295; }
+    #banRa03:checked ~ .numBtnFrame .item3 label {
+        background-color:#005295; }
+    #banRa04:checked ~ .numBtnFrame .item4 label {
+        background-color:#005295; }
+    #banRa05:checked ~ .numBtnFrame .item5 label {
+        background-color:#005295; }
+    #banRa06:checked ~ .numBtnFrame .item6 label {
+        background-color:#005295; }
+    #banRa07:checked ~ .numBtnFrame .item7 label {
+        background-color:#005295; }
+    #banRa08:checked ~ .numBtnFrame .item8 label {
+        background-color:#005295; }
+        
+    #banRa01:checked ~ .vsBnFrame { margin-left:0; }
+    #banRa02:checked ~ .vsBnFrame { margin-left:-1200px; }
+    #banRa03:checked ~ .vsBnFrame { margin-left:-2400px; }
+    #banRa04:checked ~ .vsBnFrame { margin-left:-3600px; }
+    #banRa05:checked ~ .vsBnFrame { margin-left:-4800px; }
+    #banRa06:checked ~ .vsBnFrame { margin-left:-6000px; }
+    #banRa07:checked ~ .vsBnFrame { margin-left:-7200px; }
+    #banRa08:checked ~ .vsBnFrame { margin-left:-8400px; }
+
+    #banRa01:checked ~ .vsBnFrame .item1 { transform:scale(1); opacity:1; }
+    #banRa02:checked ~ .vsBnFrame .item2 { transform:scale(1); opacity:1; }
+    #banRa03:checked ~ .vsBnFrame .item3 { transform:scale(1); opacity:1; }
+    #banRa04:checked ~ .vsBnFrame .item4 { transform:scale(1); opacity:1; }
+    #banRa05:checked ~ .vsBnFrame .item5 { transform:scale(1); opacity:1; }
+    #banRa06:checked ~ .vsBnFrame .item6 { transform:scale(1); opacity:1; }
+    #banRa07:checked ~ .vsBnFrame .item7 { transform:scale(1); opacity:1; }
+    #banRa08:checked ~ .vsBnFrame .item8 { transform:scale(1); opacity:1; }
+
+    </style>
+<!--    page3-->
+    <style>    
+    #page3 { background-image:url("./img/bg.png"); 
+        background-size:100% 100%; background-attachment:fixed; }
+        #page3:hover {cursor: pointer;}
+        
+    .ani {
+    position: absolute;
+    top: 0;
+    left: 0;
+    float: left;
+    width: 100%;
+    height: 100%;
+}
+        .ani {
+    -webkit-transition: all 0.10s ease-out;
+    -moz-transition: all 0.10s ease-out;
+    -o-transition: all 0.10s ease-out;
+    transition: all 0.10s ease-out;
+}
+        div.ani > img.cloud.left {
+    left: 1%;
+    -webkit-animation-duration: 7.00s;
+    animation-duration: 7.00s;
+    -webkit-animation-name: tov-slideLeft;
+    animation-name: tov-slideLeft;
+}
+  div.ani > img.cloud {
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+}
+div.ani > img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    float: left;
+    width: 100%;
+    height: 100%;
+}
+        div.ani > img.cloud.right {
+    left: -1.5%;
+    -webkit-animation-duration: 4.00s;
+    animation-duration: 4.00s;
+    -webkit-animation-name: tov-slideRight;
+    animation-name: tov-slideRight;
+}
+        .mainbanner .slider li > a.ombrebird > div.ani > img.hotAirBalloon {
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+    -webkit-animation-duration: 15.00s;
+    animation-duration: 15.00s;
+    -webkit-transform-origin: top center;
+    -ms-transform-origin: top center;
+    transform-origin: top center;
+    -webkit-animation-name: tov-swing;
+    animation-name: tov-swing;
+}
+/*
+    #page3 .pageWrap { background-image: url("./source/bn3_graph.png"); 
+    width:100%; height:100%; background-size:100% cover; background-position:center bottom; background-repeat: no-repeat; }
+    .wrap_tit { position:absolute; top:20%; left:16.66%; z-index:1;
+    right:33%; }
+    .comm_tit { color:#fff;    font-family:'AritaDotumSB', sans-serif;
+    text-align:left; font-size:20px; }
+    .slg_tit { font-size:48px;  color:#fff; font-family:'AritaBuri', sans-serif; line-height:1.12857;  margin-top:20px; text-align:left; 
+        font-weight:900; }
+*/
+    </style>
+<!--    page4-->
+    <style>
+    #page4 { background-image:url("./img/bg_map_pc.jpg");
+        background-position: center center; background-repeat:no-repeat;
+        background-size:cover; }  
+        
+        .video {
+    height: 0px;
+    position: relative;
+    overflow: hidden;
+    margin: 0 auto 50px;}
+        .video-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    width: 100%;}
+        .video-background video {
+    min-height: 5%;
+    min-width: 100%;
+}
+        video {
+    object-fit: contain;
+}
+        
+    .fp-tableCell { width:1200px; margin:0px auto; padding-top:220px; 
+        height:500px; overflow:hidden; } 
+    .activities_wrap { width:1200px; margin:0px auto; }
+    .activities2 { width:260px; float:left; }
+    .activities1 { width:4800px; height:480px;  }
+    .actFrame { width:850px; height:480px; float:right;
+        overflow:hidden; }
+    .slide_sec_01 { height:480px; float:left; width:0px; overflow:hidden; 
+        transition:0.5s; }
+    .slide_sec_01.active { width:850px; }    
+    .sec_01_img { width:450px; height:480px; float:left; overflow:hidden; }
+    .sec_01_img img { display:block; width:387px; height:auto; }
+    .sec_01_txtarea { width:350px; height:440px; float:right; overflow:hidden; }
+    .sec_01_idx { font-family:'AritaDotumSB', sans-serif; font-size:29px; color:#005295; line-height:2; }
+    .sec_01_tit { margin-top:20px;  font-family:'AritaBuri', sans-serif;
+     font-weight:900; font-size:48px; color:#111; line-height:1.1;
+    word-break:keep-all;  letter-spacing:-0.05em; }
+    .sec_01_txt { font-family:'AritaDotumM', sans-serif; margin-top:25px; padding-left:70px; font-size:14px;  line-height:1.5; color:#666;   }
+    .sec_01_txt:before { content:" ";  display:block;  position:absolute;
+    border-top:1px solid #205997;  width:310px; margin-left:-320px;
+    margin-top:12px; display:none; width:0px; }
+    .slide_sec_01.active .sec_01_txt:before { display:block; width:310px; }   
+    .btn_more3 { float:left;  margin:22px 0 0 104px;   padding:0;
+    width:auto;    border:0;  border-bottom:1px solid #111;
+    display:block; color:#111;  font-size:14px; }
+    .activities2 a { position:relative; display:block; margin-bottom:20px;
+    margin-right:20px; border-bottom:1px solid #eee; }
+    .activities2 a:after { content:" ";  display:block;  clear:both; }
+    .activities2 .thumb { float:left; width:73px; height:73px; }
+    .activities2 .thumb img { display:block; width:100%; height:auto; }    
+    .activities2 .txt { float:right; width:165px; height:21px; line-height: 73px; text-align:center; }
+    .activities2 .txt em { display:none; }
+    .activities2 a div span { display:block;        margin-top:1px;
+        font-size:14px; font-family:'AritaBuri', sans-serif; font-weight:700; line-height:1.3;   color:#555; padding-top: 20px; }
+    .activities2 .active a:before { content:" "; position:absolute;
+        width:12px;  height:10px;  right:0;  bottom:0;
+        background:url("./img/slide_arrow.png") no-repeat right top;}
+    .activities2 .active a.culture:before { content:" ";
+        position:absolute;  width:12px;  height:10px;  right:0;
+        bottom:0px;  background: url("./img/slide_arrow2.png") no-repeat right top; }
+    .activities2 .active a.nature:before { content:" ";
+        position:absolute;  width:12px;  height:10px;  right:0;
+        bottom:-2px;  background: url("./img/slide_arrow1.png") no-repeat right bottom;  }
+    .activities2 .active a div span { font-size:16px; }
+    .activities2 .active a.femail { border-bottom:2px solid #ea7187; }
+    .activities2 .active a.culture { border-bottom: 2px solid #f0c457; }
+    .activities2 .active a.nature { border-bottom: 2px solid #45af98; }
+    .activities2 .active .femail span { color:#d03b56;  }
+    .activities2 .active .culture span { color:#917100; }
+    .activities2 .active .nature span { color:#19826c; }
+    </style>
+<!--    page5-->
+    <style>
+    #page5 { overflow:hidden; }
+    .snsSlider { clear:both; width:1200px; margin:0 auto;  position:relative; }
+    .sliderWrap { width:4800px; margin-top:250px; }
+    .sliderWrap li { position:absolute; top:0; left:-1250px; 
+        padding-left:150px; transition-duration:1.1s, 0.7s; opacity:0; 
+        transition-property:opacity, left; }
+    .sliderWrap li.active { left:0; opacity:1; }
+    .amore_sns { font-family:'AritaDotumSB', sans-serif;
+        font-size:20px;    color:#005295;    text-align:left;
+        margin-bottom:20px; }
+    .our_social_media {font-family:'AritaBuri', sans-serif; font-weight:700; font-size:48px;   line-height:1.3;
+        color: #111;   text-align: left;  letter-spacing: -1px;    }
+    .sliderCont button { outline:0; border:0; display:block; width:35px; 
+        height:35px; background-position:center center; background-repeat:no-repeat; float:left; margin-right:24px; border-radius:20px; border:1px solid #999; text-indent:-9999px;
+        cursor:pointer; background-color:transparent; }
+    .sliderCont button:first-child { margin-left:150px; }
+    .sliderCont { position:absolute; left:0; top:310px; z-index:990; }
+    .sliderPrev { background-image:url("./img/slide_btn_left.png"); }
+    .sliderNext { background-image:url("./img/slide_btn_right.png"); }
+    </style>
+    <style>
+    #page5 { overflow:hidden; }
+    .snsSlider { clear:both; width:1200px; margin:0 auto;  position:relative; }
+    .sliderWrap { width:4800px; margin-top:250px; }
+    .sliderWrap li { position:absolute; top:0; left:-1250px; 
+        padding-left:150px; transition-duration:1.1s, 0.7s; opacity:0; 
+        transition-property:opacity, left; }
+    .sliderWrap li.active { left:0; opacity:1; }
+    .amore_sns { font-family:'AritaDotumSB', sans-serif;
+        font-size:20px;    color:#005295;    text-align:left;
+        margin-bottom:20px; }
+    .our_social_media {font-family:'AritaBuri', sans-serif; font-weight:700; font-size:48px;   line-height:1.3;
+        color: #111;   text-align: left;  letter-spacing: -1px;    }
+    .sliderCont button { outline:0; border:0; display:block; width:35px; 
+        height:35px; background-position:center center; background-repeat:no-repeat; float:left; margin-right:24px; border-radius:20px; border:1px solid #999; text-indent:-9999px;
+        cursor:pointer; background-color:transparent; }
+    .sliderCont button:first-child { margin-left:150px; }
+    .sliderCont { position:absolute; left:0; top:310px; z-index:990; }
+    .sliderPrev { background-image:url("./img/slide_btn_left.png"); }
+    .sliderNext { background-image:url("./img/slide_btn_right.png"); }
+    </style>
+<style>
+    #page5{width: 2300px;margin: 0 auto;display: block;position: relative;}
+    #mainwrap .mainBlock {margin-top: 100px;position: relative;}
+    
+    .pageNation {position: fixed;left: 0;top: 38%;width: 80px;z-index: 1030;}
+    .pageBtn.act {background: rgba(44, 126, 176, 0.8);border: 2px solid #fff;}
+    .pageBtn {
+    display: block;
+    width: 10px;
+    height: 10px;
+    margin: 10px auto;
+    border: 0;
+    outline: 0;
+    border-radius: 9px;
+    border: 1px solid #222;
+    background: rgba(0, 0, 0, 0.8);
+    cursor: pointer;
+    cursor: pointer;
+}
+    toTop {
+    display: block;
+    width: 60px;
+    height: 60px;
+    position: fixed;
+    right: 40px;
+    bottom: 230px;
+    z-index: 1030;
+    background-image: url(./source/btn_top.png);
+}
+    </style>
+     
+
+     <script src="http://code.jquery.com/jquery-latest.js"></script>
+    <script src="ktslider2.js"></script>
+    <script src="txtslider2.js"></script>
+    <script src="ktsmslider.js"></script>
+    <script>
+    $(document).ready(function(){
+        $("#page4 .list").click(function(){
+            var tar = parseInt($(this).attr("data-index"));
+            $("#page4 .list").removeClass("active");
+            $(this).addClass("active");
+            $(".activities1 .slide_sec_01").removeClass("active");
+            $(".activities1 .slide_sec_01").eq(tar).addClass("active");
+        });
+    });
+    </script>
+    <script>
+    $(document).ready(function(){
+        var cnt = 0;
+        $("#page5 .sliderPrev").click(function(){
+           if(cnt>0) {
+                cnt--;  
+               $(".sliderWrap li").removeClass("active");
+               $(".sliderWrap li").eq(cnt).addClass("active");
+           } else {
+               cnt=3;
+               $(".sliderWrap li").removeClass("active");
+               $(".sliderWrap li").eq(cnt).addClass("active");
+           }
+        });
+        $("#page5 .sliderNext").click(function(){
+           if(cnt<3) {
+               cnt++;  
+               $(".sliderWrap li").removeClass("active");
+               $(".sliderWrap li").eq(cnt).addClass("active");
+           } else {
+               cnt=0;
+               $(".sliderWrap li").removeClass("active");
+               $(".sliderWrap li").eq(cnt).addClass("active");
+           }
+        }); 
+    });
+    </script>
+    <script>
+        //한 페이지씩 스크롤
+        $(document).ready(function () {
+        	var sc_pg = parseInt($(window).height());
+			$(window).on('mousewheel', function(e){
+				if(e.originalEvent.wheelDelta < 0) {
+					$('html, body').not(":animated").animate({
+                        scrollTop : '+='+sc_pg+'px'},800);
+				} else {
+					$('html, body').not(":animated").animate({
+                        scrollTop : '-='+sc_pg+'px'},800);
+				}
+				return false;
+			});
+			//$(window).mousewheel
+		});
+    </script>
+    <script>
+    $(document).ready(function(){
+        var ftHt = $(window).height() * 3;
+        var parHt = $(window).height();
+        //$(".ft").css("display", "none");
+        //메뉴의 스크롤 모션
+        $(window).scroll(function(){
+            var sct = $(window).scrollTop();
+            if(sct>=500){
+                $(".hd").addClass("active");
+            } else {
+                 $(".hd").removeClass("active");
+            }
+            
+            if(sct>ftHt){
+                $(".ft").addClass("active");
+            } else {
+                $(".ft").removeClass("active");
+            }
+        });
+    });
+    </script>
+      <script>
+    $(document).ready(function(){
+        $(".pageNation .pageBtn").eq(0).addClass("act");
+        var sc_pg = parseInt($(window).height());
+        $(window).scroll(function(){
+            var sct = $(window).scrollTop();
+            var btnPos = parseInt(sct / sc_pg);
+            $(".pageNation .pageBtn").removeClass("act");
+            $(".pageNation .pageBtn").eq(btnPos).addClass("act");
+        });
+        $(".pageNation .pageBtn").click(function(){
+            var cPage = $(this).attr("data-val");
+            $('html, body').not(":animated").animate({
+                scrollTop: cPage*sc_pg + 'px'
+            }, 1600);
+        });
+    });
+    </script>
+</head>
+    <body>
+<div class="wrap">
+    <input type="checkbox" id="menu_ck" class="ckItem">
+    <header class="hd active">
+        <div class="hdWrap">
+            <label for="menu_ck" class="opener"></label>
+            <a href="" class="logo w"></a>
+            <nav class="mainMenu">
+                <ul class="tnb">
+                    <li><a href="">EN</a></li>
+                    <li><a href="">CN</a></li>
+                    <li><a href="">JP</a></li>
+                    <li><a href="">TH</a></li>
+                    <li><a href="">VN</a></li>
+                </ul>
+                <ul class="gnb">
+                    <li><a href="">COMMUNITY</a></li>
+                    <li><a href="">REVIEW</a></li>
+                    <li><a href="">STORE</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <nav id="collapMenu">
+        <label for="menu_ck" class="close"></label>
+        <a href="" class="logo b"></a>
+        <ul class="colMenu">
+            <li><a href="">WIG</a>
+                <ul class="colSub">
+                    <li><a href="">전체가발</a></li>
+                    <li><a href="">업스타일</a></li>
+                    <li><a href="">포니테일</a></li>
+                    <li><a href="">앞머리</a></li>
+                    <li><a href="">붙임머리</a></li>
+                    <li><a href="">하이커버피스</a></li>
+                </ul>
+            </li>
+            <li><a href="">BEST</a>
+                <ul class="colSub">
+                    <li><a href="">앞머리</a></li>
+                    <li><a href="">붙임머리</a></li>
+                    <li><a href="">포니테일</a></li>
+                    <li><a href="">업스타일</a></li>
+                    <li><a href="">반가발</a></li>
+                    <li><a href="">전체가발</a></li>
+                    <li><a href="">탑커버</a></li>
+                </ul>
+            </li>
+            <li><a href="">ACC</a>
+<!--
+                <ul class="colSub">
+                    <li><a href="">설화수</a></li>
+                    <li><a href="">라네즈</a></li>
+                    <li><a href="">마몽드</a></li>
+                   <li><a href="">이니스프리</a></li>
+                   <li><a href="">에뛰드하우스</a></li>
+                   <li><a href="">오설록</a></li>
+                   <li><a href="">프리메라</a></li>
+                   <li><a href="">미쟝센</a></li>
+                </ul>
+-->
+            </li>
+            <li><a href="">SALE</a>
+<!--
+                <ul class="colSub">
+                    <li><a href="">아름다운 생각과 행동, 그 순간의 기록</a></li>
+                    <li><a href="">Stories</a></li>
+                    <li><a href="">Videos</a></li>
+                </ul>
+-->
+            </li>
+            <li><a href="">PINKAGE</a>
+                <ul class="colSub">
+                    <li><a href="">COMMUNUITY</a></li>
+                    <li><a href="">REVIEW</a></li>
+                    <li><a href="">SOTRE</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+    <section class="page" id="page1">
+        <div class="pageWrap">
+            <div class="imgSlide" id="visual">
+                <p class="prev">prev</p>
+                <p class="next">next</p>
+                <div class="gallery" style="left: 0px;">
+                    <img src="./img/vs1.jpg" class="banImg on" alt="배너1" data-index="1" style="left: 1903px; z-index: 1;">
+                    <img src="./img/vs4.jpg" class="banImg" alt="배너1" data-index="2" style="left: 0px; z-index: 1;">
+                    <img src="./img/vs2.jpg" class="banImg" alt="배너2" data-index="3" style="left: 0px; z-index: 1;">
+                    <img src="./img/vs3.jpg" class="banImg" alt="배너3" data-index="4" style="left: 0px; z-index: 2;">
+                    <!-- <img src="http://placehold.it/300x200&text=4"> -->
+                </div>
+                <ul class="banCon">
+                    <li class="banTitleBox on" data-value="1" style="z-index: 2;">
+                        <h2 class="banTit"></h2>
+                        <a href="" class="more">더 보기 &gt;</a>
+                    </li>
+<!--
+                    <li class="banTitleBox" data-value="2" style="z-index: 2;">
+                        <h2 class="banTit fnt1 tit3" style="color:#fff;">A MORE <br>Beautiful World</h2>
+                        <a href="" class="more">더 보기 &gt;</a>
+                    </li>
+-->
+                    <li class="banTitleBox" data-value="3" style="z-index: 2;">
+                        <h2 class="banTit">
+                            <img src="./source/vs2Title.png" alt="">
+                        </h2>
+                        <a href="" class="more">더 보기 &gt;</a>
+                    </li>
+                    <li class="banTitleBox" data-value="4" style="z-index: 2;">
+                        <h2 class="banTit"></h2>
+                        <a href="" class="more">더 보기 &gt;</a>
+                    </li>
+                </ul>
+                <p class="paging">
+                    <a href="javascript:;" data-index="1" class="paging_on">1</a>
+                    <a href="javascript:;" data-index="2" class="">2</a>
+                    <a href="javascript:;" data-index="3" class="">3</a>
+                    <a href="javascript:;" data-index="4" class="">4</a>
+                    <button class="playBtn" control-toggle="play"></button></p>
+            </div>
+        </div>
+        <div class="smallBan" id="smallBan1">
+            <div class="imgSlide2" id="subBan1">
+                <p class="prev2"></p>
+                <p class="next2"></p>
+<!--
+                <div class="gallery2">
+                    <img src="./source/sm1.jpg" class="banImg on2" alt="" data-index="1" style="left: 0px; z-index: 3;">
+                    <img src="./source/sm2.jpg" class="banImg" alt="" data-index="2">
+                    <img src="./source/sm3.jpg" class="banImg" alt="" data-index="3">
+                    <img src="./source/sm4.jpg" class="banImg" alt="" data-index="4">
+                </div>
+-->
+            </div>
+        </div>
+    </section>
+    <section class="page" id="page2">
+        <div class="pageWrap">
+            <figure class="vsBn" id="vsBn1">
+                <input type="radio" id="banRa01" class="raItem" name="banRa1" checked="">
+                <input type="radio" id="banRa02" class="raItem" name="banRa1">
+                <input type="radio" id="banRa03" class="raItem" name="banRa1">
+                <input type="radio" id="banRa04" class="raItem" name="banRa1">
+                <input type="radio" id="banRa05" class="raItem" name="banRa1">
+                <input type="radio" id="banRa06" class="raItem" name="banRa1">
+                <input type="radio" id="banRa07" class="raItem" name="banRa1">
+                <input type="radio" id="banRa08" class="raItem" name="banRa1">
+                <ul class="vsBnFrame">
+                    <li class="item1">
+                        <div class="banFrame">
+                            <img src="./img/hair01.jpg" alt="붙임머리">
+                        </div>
+                        <div class="txt_wrap">
+                            <p class="p_index">Hair Editor</p>
+<!--                            <p class="p_date">기획저널  <span>| </span>Jun 2018</p>-->
+                            <p class="p_tit">붙임머리는 왜 그럴까?</p>
+                            <p class="p_text">
+                                나에게 맞는 <em>붙임머리</em>는 따로 있다.
+                            </p>
+                            <div class="btn_more2_wrap">
+                                <a href="#" class="btn_more2" title="붙임머리">더 보기 &gt;</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="item2">
+                        <div class="banFrame">
+                            <img src="./img/hair02.jpg" alt="wig">
+                        </div>
+                        <div class="txt_wrap">
+                            <p class="p_index">Hair Editor</p>
+<!--                            <p class="p_date">뷰티풀 라이프 <span>| </span>Jun 2018</p>-->
+                            <p class="p_tit">WIG FOR SEISURE</p>
+                            <p class="p_text">
+                                활동적인 당신을 위한 헤어 
+                            </p>
+                            <div class="btn_more2_wrap">
+                                <a href="#" class="btn_more2" title="브라보 유어 라이프">더 보기 &gt;</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="item3">
+                        <div class="banFrame">
+                            <img src="./img/hair03.jpg" alt="봄">
+                        </div>
+                        <div class="txt_wrap">
+                            <p class="p_index">Hair Editor</p>
+<!--                            <p class="p_date">핑크리본 캠페인 <span>| </span>Jun 2018</p>-->
+                            <p class="p_tit">봄: 로맨스 그리고 영화</p>
+                            <p class="p_text">
+                                떨어지는 벚꽃 잎 아래에서 피어날 로맨스를 꿈꾸는 계절.<br>
+                                마음이 아릿한 로맨스 영화들이 스크린을 채우고 있는데요.<br>
+                                설레는 봄, 로맨스 영화 속 여주인공의 스타일을 살펴볼게요.
+                            </p>
+                            <div class="btn_more2_wrap">
+                                <a href="#" class="btn_more2" title="유방건강에 좋은 레시피 2">더 보기 &gt;</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="item4">
+                        <div class="banFrame">
+                            <img src="./img/hair04.jpg" alt="베이피피스">
+                        </div>
+                        <div class="txt_wrap">
+                            <p class="p_index">Hair Editor</p>
+<!--                            <p class="p_date">아시아의 미  <span>|</span>Jun 2018</p>-->
+                            <p class="p_tit">베이비피스 100% 이해하기 </p>
+                            <p class="p_text">
+                                더 완벽한 스타일링을 하고 싶은 당신을 위한 히든 아이템, 베이비피스.<br>머리가 짧고 숱이 없어 하이커버피스, 오픈반가발 착용 시 옆머리가 티가 나는 분들을 위해 제작했어요.
+                            </p>
+                            <div class="btn_more2_wrap">
+                                <a href="#" class="btn_more2" title="조금은 다른 공주님 바리데기 ">더 보기 &gt;</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="item5">
+                        <div class="banFrame">
+                            <img src="./img/hair05.jpg" alt="추위">
+                        </div>
+                        <div class="txt_wrap">
+                            <p class="p_index">Hair Editor</p>
+<!--                            <p class="p_date">핑크리본 캠페인 <span>|</span>May 2018</p>-->
+                            <p class="p_tit">추위를 피하고 싶었어</p>
+                            <p class="p_text">
+                                직접 염색하기 힘들다면 <em>전체가발</em>을,
+                                <br>
+                                밝은 탈색/염색모라면 <em>붙임머리/하이커버피스</em> 라이트컬러 제품으로 <br> 헤어를 더욱 예쁘게 연출해 인생샷을 만들어보세요!
+                            </p>
+                            <div class="btn_more2_wrap">
+                                <a href="#" class="btn_more2" title="유방건강에 좋은 레시피">더 보기 &gt;</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="item6">
+                        <div class="banFrame">
+                            <img src="./img/hair06.jpg" alt="지난 사랑에 대한">
+                        </div>
+                        <div class="txt_wrap">
+                            <p class="p_index">Hair Editor</p>
+<!--                            <p class="p_date">CSR사례 <span>|</span>May 2018</p>-->
+                            <p class="p_tit">지난 사랑에 대한 아련한 기억과</p>
+                            <p class="p_text">
+                                지금은 곁에 없는 지난 사랑에 대한 기억을 정리하는 건, 쉬운 일이 아니에요. 추억의 장소를 다시 찾아가더라도 이곳저곳에서 지나간 기억은 남아있는데 사랑했던 사람의 존재는 없고 기억만 남았어요. 
+                                알면서도 반복하게 되는 것이 지난 사랑에 대한 기억이죠
+                            </p>
+                            <div class="btn_more2_wrap">
+                                <a href="#" class="btn_more2" title="달콤한 인생을 위한 Plan. Bee">더 보기 &gt;</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="item7">
+                        <div class="banFrame">
+                            <img src="./img/hair07.jpg" alt="외로워도">
+                        </div>
+                        <div class="txt_wrap">
+                            <p class="p_index">Hair Editor</p>
+<!--                            <p class="p_date">기획저널 <span>|</span>May 2018</p>-->
+                            <p class="p_tit">외로워도 슬퍼도 나는 예쁠거야</p>
+                            <p class="p_text">
+                                그 누가 당신을 외롭고 슬프게 만들더라도 당신은 언제나 예쁠거에요.
+                            </p>
+                            <div class="btn_more2_wrap">
+                                <a href="#" class="btn_more2" title="꿀벌 실종 사건">더 보기 &gt;</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="item8">
+                        <div class="banFrame">
+                            <img src="./img/hair08.jpg" alt="핑크시그널">
+                        </div>
+                        <div class="txt_wrap">
+                            <p class="p_index">Hair Editor</p>
+<!--                            <p class="p_date">아시아의 미 <span>|</span>May 2018</p>-->
+                            <p class="p_tit">핑크시그널 법칙</p>
+                            <p class="p_text">
+                                #배윤경의 스타일 변신 <br>시그널을 부르는 그녀의 헤어스타일
+                            </p>
+                            <div class="btn_more2_wrap">
+                                <a href="#" class="btn_more2" title="당신의 오감은 안녕하십니까?">더 보기 &gt;</a>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+                <ul class="lrBtnFrame">
+                    <li class="item1">
+                        <label for="banRa02" class="right"></label>
+                    </li>
+                    <li class="item2">
+                        <label for="banRa01" class="left"></label>
+                        <label for="banRa03" class="right"></label>
+                    </li>
+                    <li class="item3">
+                        <label for="banRa02" class="left"></label>
+                        <label for="banRa04" class="right"></label>
+                    </li>
+                    <li class="item4">
+                        <label for="banRa03" class="left"></label>
+                        <label for="banRa05" class="right"></label>
+                    </li>
+                    <li class="item5">
+                        <label for="banRa04" class="left"></label>
+                        <label for="banRa06" class="right"></label>
+                    </li>
+                    <li class="item6">
+                        <label for="banRa05" class="left"></label>
+                        <label for="banRa07" class="right"></label>
+                    </li>
+                    <li class="item7">
+                        <label for="banRa06" class="left"></label>
+                        <label for="banRa08" class="right"></label>
+                    </li>
+                    <li class="item8">
+                        <label for="banRa07" class="left"></label>
+                    </li>
+                </ul>
+                <ul class="numBtnFrame">
+                    <li class="item1"><label for="banRa01" class="numBtn"></label></li>
+                    <li class="item2"><label for="banRa02" class="numBtn"></label></li>
+                    <li class="item3"><label for="banRa03" class="numBtn"></label></li>
+                    <li class="item4"><label for="banRa04" class="numBtn"></label></li>
+                    <li class="item5"><label for="banRa05" class="numBtn"></label></li>
+                    <li class="item6"><label for="banRa06" class="numBtn"></label></li>
+                    <li class="item7"><label for="banRa07" class="numBtn"></label></li>
+                    <li class="item8"><label for="banRa08" class="numBtn"></label></li>
+                </ul>
+            </figure>
+        </div>
+    </section>
+    <section class="page" id="page3">
+        <div class="pageWrap">
+            <div class="ani">
+                    <img class="cloud left" src="http://pinkagewig.img18.kr/banner/ombrebird/cloud1.png">
+                    <img class="cloud right" src="http://pinkagewig.img18.kr/banner/ombrebird/cloud2.png">
+                    <img class="hotAirBalloon" src="http://pinkagewig.img18.kr/banner/ombrebird/hotAirBalloon.png" style="">
+                </div>
+<!--
+            <div class="wrap_tit">
+                <p class="comm_tit">'20 by 20' Commitment</p>
+                <p class="slg_tit">
+                    <span>Beautify the lives of</span> <span>200,000 women</span> <span>by 2020</span>
+                </p>
+            </div>
+-->
+            <!-- <div class="year_wrap">
+                <div class="year_area y2017">
+                    <div class="count_area visual01">
+                        <svg height="100%" width="200%" viewBox="0 -1 300 100" preserveAspectRatio="none">
+                            <polygon class="graph_area" points="0,27 300,18 300,100 18,100" style="fill: rgba(234, 113, 135, 0.1); opacity: 1;"></polygon>
+                            <polygon class="graph_fill" points="0,27 300,18 300,100 18,100" style="fill: rgba(234, 113, 135, 0.3); opacity: 1;"></polygon>
+                            <line x1="0" y1="27%" x2="100%" y2="18%" style="stroke: rgb(234, 113, 135); stroke-width: 0.3; opacity: 1;"></line>
+                        </svg>
+                        <svg height="100%" width="100%" viewBox="0 -1 300 100" preserveAspectRatio="none">
+                            <polygon class="graph_area" points="0,18 300,0 300,100 0,100" style="fill: rgba(234, 113, 135, 0.1); opacity: 1;"></polygon>
+                             <polygon class="graph_fill full" points="0,50 230,50 230,4 0,18" style="fill: rgba(234, 113, 135, 0.3); opacity: 1;"></polygon>
+                            <polygon class="graph_fill half" points="0,18 150,9 150,100 0,100" style="fill: rgba(234, 113, 135, 0.3); opacity: 1;"></polygon>
+                            <line x1="0" y1="18%" x2="100%" y2="0" style="stroke: rgb(234, 113, 135); stroke-width: 0.3; opacity: 1;"></line>
+                        </svg>
+                        <div class="bubble">
+                            <h4 class="head">2017</h4>
+                            <p class="reach_tgt"><span>78</span>% 도달</p>
+                            <div class="box">
+                                <div class="triangle_down"></div>
+                            </div>
+                        </div>
+                        <div class="result_index">
+                            <p class="year_tit mo">2017 결과</p>
+                            <p class="target">
+                                <span class="st">145,405</span>명
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="year_area y2018">
+                    <div class="count_area visual01">
+                        <svg height="100%" width="100%" viewBox="0 -1 300 100" preserveAspectRatio="none">
+                            <polygon class="graph_area" points="0,18 300,0 300,100 0,100" style="fill: rgba(234, 113, 135, 0.1); opacity: 1;"></polygon>
+                            <polygon class="graph_fill full" points="0,18 300,0 300,100 0,100" style="fill: rgba(234, 113, 135, 0.3); opacity: 1;"></polygon>
+                            <polygon class="graph_fill full" points="0,18 150,9 150,100 0,100" style="fill: rgba(234, 113, 135, 0.3); opacity: 1;"></polygon>
+                            <line x1="0" y1="18%" x2="100%" y2="0" style="stroke: rgb(234, 113, 135); stroke-width: 0.3; opacity: 1;"></line>
+                        </svg>
+                        <div class="bubble">
+                            <h4 class="head">2018</h4>
+                            <p class="reach_tgt">
+                                <span>78</span>% 도달
+                            </p>
+                            <div class="box">
+                                <div class="triangle_down"></div>
+                            </div>
+                        </div>
+                        <div class="result_index">
+                            <p class="year_tit mo">2018 결과</p>
+                            <p class="target"><span class="st">155,911</span>명</p>
+                            <div class="target_status">
+                                <span><em class="ico_health">Health &amp; Well-being </em>154,112명</span>
+                                <span><em class="ico_economic">Economic empowerment </em>1,799명</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="year_area y2019">
+                    <div class="count_area visual01">
+                        <svg height="100%" width="100%" viewBox="0 -1 300 100" preserveAspectRatio="none">
+                            <polygon class="graph_area" points="0,18 300,0 300,100 0,100" style="fill: rgba(234, 113, 135, 0.1); opacity: 1;"></polygon>
+                            <polygon class="graph_fill full" points="0,18 300,0 300,100 0,100" style="fill: rgba(234, 113, 135, 0.3); opacity: 1;"></polygon>
+                            <polygon class="graph_fill half" points="0,18 150,9 150,100 0,100" style="fill: rgba(234, 113, 135, 0.3); opacity: 1;"></polygon>
+                            <line x1="0" y1="18%" x2="100%" y2="0" style="stroke: rgb(234, 113, 135); stroke-width: 0.3; opacity: 1;"></line>
+                        </svg>
+                        <div class="bubble">
+                            <h4 class="head">2019</h4>
+                            <p class="reach_tgt"><span>78</span>% 도달</p>
+                            <div class="box">
+                                <div class="triangle_down"></div>
+                            </div>
+                        </div>
+                        <div class="result_index">
+                            <p class="year_tit mo">2019 결과</p>
+                            <p class="target"><span class="st">0</span>명</p>
+                            <div class="target_status">
+                                <span><em class="ico_health">Health &amp; Well-being </em>0명</span>
+                                <span><em class="ico_economic">Economic empowerment </em>0명</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="year_area y2020">
+                    <div class="count_area visual01">
+                        <svg height="100%" width="200%" viewBox="0 -1 300 100" preserveAspectRatio="none">
+                            <polygon class="graph_area" points="0,18 300,0 300,100 0,100" style="fill: rgba(234, 113, 135, 0.1); opacity: 1;"></polygon>
+                            <polygon class="graph_fill" points="0,18 300,0 300,100 0,100" style="fill: rgba(234, 113, 135, 0.3); opacity: 1;"></polygon>
+                            <line x1="0" y1="18%" x2="100%" y2="0" style="stroke: rgb(234, 113, 135); stroke-width: 0.3; opacity: 1;"></line>
+                        </svg>
+                        <div class="bubble">
+                            <h4 class="head">2020</h4>
+                            <p class="reach_tgt"><span>78</span>% 도달</p>
+                            <div class="box">
+                                <div class="triangle_down"></div>
+                            </div>
+                        </div>
+                        <div class="result_index">
+                            <p class="year_tit mo">2020 결과</p>
+                            <p class="target"><span class="st">0</span>명</p>
+                            <div class="target_status">
+                                <span><em class="ico_health">Health &amp; Well-being </em>0명</span>
+                                <span><em class="ico_economic">Economic empowerment </em>0명</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+        </div>
+    </section>
+    <section class="page" id="page4">
+        <div class="pageWrap">
+           <div class="video"><div class="video-background" style="height: 6960px;"><video preload="auto" poster="http://pinkagewig.cafe24.com/sale.jpg" autoplay="autoplay" loop="loop" muted="muted"><source src="//pinkagewig.cafe24.com/sale.mp4" type="video/mp4"><source src="/video/ess.webm" type="video/webm"><source src="/video/ess.ogv" type="video/ogg"></video><div class="ui-video-background ui-widget ui-widget-content ui-corner-all"><ul class="ui-video-background-controls"><li class="ui-video-background-play"><a class="ui-icon ui-icon-pause" href="#">Pause</a></li><li class="ui-video-background-mute"><a class="ui-icon ui-icon-volume-on" href="#">Mute</a></li></ul></div></div></div>
+            <div class="fp-tableCell">
+				<div class="activities_wrap">
+					<ul class="activities2">
+                        <li class="list active" data-index="0">
+                            <a data-num="0" class="femail" href="javascript:void(0)">
+                                <div class="thumb">
+                                    <img src="./img/event01-1.jpg" alt="event01">
+                                </div>
+                                <div class="txt">
+                                    <em>여성</em>
+                                    <span>오직 3일간, 최대 40% 할인</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="list" data-index="1">
+                            <a data-num="1" class="femail" href="javascript:void(0)">
+                                <div class="thumb">
+                                    <img src="./img/event02-2.PNG" alt="evnet02">
+                                </div>
+                                <div class="txt">
+                                    <em>여성</em>
+                                    <span>꿈같은 여름휴가 보내Dream</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="list" data-index="2">
+                            <a data-num="2" class="femail" href="javascript:void(0)">
+                                <div class="thumb">
+                                    <img src="./img/event03-1.png" alt="evnet03">
+                                </div>
+                                <div class="txt">
+                                    <em>여성</em>
+                                    <span>로그인만 해도 선물을 드려요</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="list" data-index="3">
+                            <a data-num="3" class="culture" href="javascript:void(0)">
+                                <div class="thumb">
+                                    <img src="./img/event04-1.jpg" alt="evnet04">
+                                </div>
+                                <div class="txt">
+                                    <em>문화</em>
+                                    <span>당신의 소.확.행은 무엇인가요?</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="list" data-index="4">
+                            <a data-num="4" class="nature" href="javascript:void(0)">
+                                <div class="thumb">
+                                    <img src="./img/event05-1.jpg" alt="evnet05">
+                                </div>
+                                <div class="txt">
+                                    <em>자연상태</em>
+                                    <span>장바구니 담기만해 결제는 내가 할게N</span>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="actFrame">
+                        <ul class="activities1">
+                            <li class="slide_sec_01 active" data-num="0" tabindex="0">
+                                <div class="sec_01_img">
+                                    <img src="./img/event01.jpg" alt="">
+                                </div>
+                                <div class="sec_01_txtarea">
+                                    <p class="sec_01_idx">Event</p>
+                                    <p class="sec_01_tit">3 Days, Sale</p>
+                                    <p class="sec_01_txt">단 3일간, 인기상품 최대 40% 할인 받고 호텔숙박권까지 모두 받아가세요!</p>
+                                    <a href="#" class="btn_more3" title="메이크업 유어 라이프">더 보기 &gt;</a>
+                                </div>
+                            </li>
+                            <li class="slide_sec_01" data-num="1">
+                                <div class="sec_01_img">
+                                    <img src="./img/event02.PNG" alt="">
+                                </div>
+                                <div class="sec_01_txtarea">
+                                    <p class="sec_01_idx">Event</p>
+                                    <p class="sec_01_tit">꿈같은 여름휴가 보내 Dream</p>
+                                    <p class="sec_01_txt"><span>참여대상</span>이벤트 기간 내 7만원 이상 구매자<span>참여방법</span>인스타그램에 구매 인증샷을 올린 후, 아래 댓글에 인스타그램ID를 남겨주세요</p>
+                                    <a href="#" class="btn_more3" title="핑크리본 캠페인 ">더 보기 &gt;</a>
+                                </div>
+                            </li>
+                            <li class="slide_sec_01" data-num="2">
+                                <div class="sec_01_img">
+                                    <img src="./img/event03.PNG" alt="">
+                                </div>
+                                <div class="sec_01_txtarea">
+                                    <p class="sec_01_idx">Event</p>
+                                    <p class="sec_01_tit">Just Login</p>
+                                    <p class="sec_01_txt"><span>혜택 하나</span>전 고객 깜짝 선물 증정 <br><span>혀택 둘</span>이벤트 기간 내 신규가입 시, 웰컴 쿠폰 + 선물 쿠폰 증정!</p>
+                                    <a href="#" class="btn_more3" title="희망가게">더 보기 &gt;</a>
+                                </div>
+                            </li>
+                            <li class="slide_sec_01" data-num="3">
+                                <div class="sec_01_img">
+                                    <img src="./img/event04.jpg" alt="">
+                                </div>
+                                <div class="sec_01_txtarea">
+                                    <p class="sec_01_idx">Event
+                                    </p>
+                                    <p class="sec_01_tit">스탠딩 에그 싱글 소확행 발매기념</p>
+                                    <p class="sec_01_txt"><span>Event</span>당신의 소확행은 무엇인가요? 댓글을 남겨주시면 3명을 추첨하여 뮤비 속 여주인공처럼 산뜻하고 귀여운 머리 하이커버피스 실키 스트레이트를 선물로 들여ㅛ!</p>
+                                    <a href="#" class="btn_more3" title="설화수  Beauty from  Your Culture">더 보기 &gt;</a>
+                                </div>
+                            </li>
+                            <li class="slide_sec_01" data-num="4">
+                                <div class="sec_01_img">
+                                    <img src="./img/event05.jpg" alt="">
+                                </div>
+                                <div class="sec_01_txtarea">
+                                    <p class="sec_01_idx">Evnet</p>
+                                    <p class="sec_01_tit">장바구니 담기만해 결제는 내가 할게 </p>
+                                    <p class="sec_01_txt"><span>이벤트 참여방법</span>1.20만원 딱 맞춰서 장바구니에 담으세요. <br>2.게시판에 '참여완료' 댓글을 달아주세요. <br> 5분 추첨하여 100만원 쏩니다!</p>
+                                    <a href="#" class="btn_more3" title="이니스프리  PLAYGREEN">더 보기 &gt;</a>
+                                </div>
+                            </li>
+                        </ul>
+					</div>
+				</div>
+			</div>
+        </div>
+    </section>
+    <section class="page" id="page5">
+        <div class="pageWrap" id="main_inner">
+            <div class="mid_banner mainBlock">
+                <ul class="col2">
+                    <li>
+                        <p class="over">
+                            <span class="e_title">Hair Extentions</span>
+                            <span class="h_title">붙임머리</span>
+                            <span class="btn"><a href="" class="buttonPro transtw xlarge xrounded">SHOP NOW</a></span>
+                        </p>
+                        <a href="" class="thumb">
+                            <img src="./img/mid_1.jpg" alt="">
+                        </a>
+                    </li>
+                    <li class="sep"></li>
+                    <li>
+                        <p class="over">
+                            <span class="e_title">Top Cover</span>
+                            <span class="h title">탑커버</span>
+                            <span class="btn"><a href="" class="buttonPro transtw xlarge xrounded">SHOP NOW</a></span>
+                        </p>
+                        <a href="" class="thumb">
+                            <img src="./img/mid_2.jpg" alt="">
+                        </a>
+                    </li>
+                </ul>
+                <ul class="col3">
+                    <li>
+                        <p class="over">
+                            <span class="e_title">Full Wig</span>
+                            <span class="h_title">전체가발</span>
+                            <span class="btn"><a href="" class="buttonPro transtw large xrounded">SHOP NOW</a></span>
+                        </p>
+                        <a href="" class="thumb">
+                            <img src="./img/mid_3.jpg" alt=""></a>
+                    </li>
+                    <li class="sep"></li>
+                    <li>
+                        <p class="over">
+                            <span class="e_title">Sushi Bang</span>
+                            <span class="h_title"></span>
+                            <span class="btn">
+                                <a href="" class="buttonPro transtw large xrounded">SHOPW NOW</a>
+                            </span>
+                        </p>
+                        <a href="" class="thumb">
+                            <img src="./img/mid_4.jpg" alt="">
+                        </a>
+                    </li>
+                    <li class="sep"></li>
+                    <li>
+                        <p class="over">
+                            <span class="e_title">Ponytail</span>
+                            <span class="h_title">포니테일</span>
+                            <span class="btn">
+                                <a href="" class="buttonPro transtw large xrounded">SHOP NOW</a>
+                            </span>
+                        </p>
+                        <a href="" class="thumb">
+                            <img src="./img/mid_5.jpg" alt="">
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    <footer class="ft active">
+        <div class="ftFrame">
+            <nav class="fnb">
+                <ul class="left">
+                    <li><a href="" class="meet">STORE</a></li>
+                    <li><a href="" class="letter">가맹점 문의</a></li>
+                </ul>
+                <ul class="right">
+                    <li><a href="https://ko-kr.facebook.com/amorepacific.recruit/" class="face"></a></li>
+                    <li><a href="https://www.instagram.com/amorepacific.official/?hl=ko" class="insta"></a></li>
+                    <li><a href="https://www.youtube.com/channel/UCHf_OkbtayzcO5XB06F_gLw" class="utube"></a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="ftWrap">
+            <ul class="ftlink">
+                <li><a href="">가발연구소</a></li> 
+                <li class="menuDivide">|</li>
+                <li><a href="" class="port">도매제휴</a></li>
+                <li class="menuDivide">|</li>
+                <li><a href="">B2B 전용</a></li>
+                <li class="menuDivide">|</li>
+                <li><a href="">고객센터</a></li>
+            </ul>
+            <p class="copyright">
+                경기도 안양시 동안구 평촌대로253번길 25<br>
+                COPYRIGHT(&copy;) 2003-2016. PINK AGE CO. ALL RIGHTS RESERVED.
+            </p>
+            <p class="ftLogo">
+                <a href="#">
+                    <img src="./img/logo.jpg" alt="푸터로고">
+                </a>
+            </p>
+<!--
+            <a href="" class="wa">
+                <img src="./source/wa.png" alt="웹접근성">
+            </a>
+-->
+        </div>
+    </footer>
+</div>
+<div class="pageNation">
+    <a class="pageBtn" data-val="0"></a>
+    <a class="pageBtn" data-val="1"></a>
+    <a class="pageBtn" data-val="2"></a>
+    <a class="pageBtn" data-val="3"></a>
+    <a class="pageBtn act" data-val="4"></a>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,34 @@
+/* icon.css */
+@charset "utf-8";
+.large, .medium, .small { background-repeat:no-repeat; 
+    background-position:center center; }
+.large { background-size:96px 96px; }
+.medium { background-size:64px 64px; }
+.small { background-size:32px 32px; }    
+.mini { background-size:16px 16px; }
+.ico1 { background-image:url("./source/icon_video_link.png"); }
+.ico2 { background-image:url("./source/slide_btn_left.png"); }
+.ico3 { background-image:url("./source/slide_btn_right.png"); }
+.ico4 { background-image:url("./source/paging_first.png"); }
+.ico5 { background-image:url("./source/paging_prev.png"); }
+.ico6 { background-image:url("./source/paging_next.png"); }
+.ico7 { background-image:url("./source/paging_last.png"); }
+.ico8 { background-image:url("./source/list_blue2.png"); }
+
+.ico11 { background-image:url("./source/go_01_t3_ico_01.png"); }
+.ico12 { background-image:url("./source/go_01_t3_ico_02.png"); }
+.ico13 { background-image:url("./source/go_01_t3_ico_03.png"); }
+.ico14 { background-image:url("./source/go_02_t3_ico_01.png"); }
+.ico15 { background-image:url("./source/go_02_t3_ico_02.png"); }
+.ico16 { background-image:url("./source/go_02_t3_ico_03.png"); }
+.ico17 { background-image:url("./source/go_03_t3_ico_01.png"); }
+.ico18 { background-image:url("./source/go_03_t3_ico_02.png"); }
+
+.ico21 { background-image:url("./source/item_01.png"); }
+.ico22 { background-image:url("./source/item_02.png"); }
+.ico23 { background-image:url("./source/item_03.png"); }
+.ico24 { background-image:url("./source/item_04.png"); }
+.ico25 { background-image:url("./source/item_05.png"); }
+.ico26 { background-image:url("./source/go_03_t3_ico_04.png"); }
+.ico27 { background-image:url("./source/go_06_t3_ico_01.png"); }
+.ico28 { background-image:url("./source/go_06_t3_ico_02.png"); }

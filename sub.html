@@ -1,0 +1,952 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>sub</title>
+    <link rel="stylesheet" href="common.css">
+    <link rel="stylesheet" href="collap.css">
+    <link rel="stylesheet" href="fonts.css">
+    <link rel="stylesheet" href="color.css">
+    <link rel="stylesheet" href="typo.css">
+    <link rel="stylesheet" href="icon.css">
+    
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+    <script src="par.js"></script>
+    <script src="hdft.js"></script>
+    <script src="pagenation.js"></script>
+    
+    <script>
+    $(document).ready(function(){
+        var pageHt = $(window).height();
+        $(".page").height(pageHt);
+    });
+    </script>
+    <script>
+    $(document).ready(function(){
+        $("#tb13 .btnFrame li label").click(function(){
+           var thBtn = parseInt($(this).attr("data-index"));
+           $(this).parents(".btnFrame").find("label").removeClass("active");
+            $(this).addClass("active");
+            $(this).parents(".btnFrame").prev(".subSlideFrame").animate({"margin-left":thBtn*1200*-1});
+        });
+    });
+    </script>
+    
+    <style>
+    
+    .logo.w { background-position:center top; }
+    .hpage { clear:both; height:300px; }    
+    .hd .mainMenu a {    color: #333; }
+    .hd .mainMenu .tnb a { font-weight:bold; }
+    .hd .mainMenu .tnb li.ko a { color:#005295; }
+    .pageNation { width:30px; }
+        
+    .tab { width:100%;  height:100%; }
+    .conBox { clear:both;  width:100%; height:100%; }
+    #tb .conBox { height:60px; }
+    .tbl { width:100%; }
+    .location_title { clear:both; width:100%;   padding-bottom:20px; 
+        border-bottom:1px solid #ddd; margin-top:0px; height:300px;      }
+    .location_title:after { content:" "; display:block;
+        width:100%; height:20px; clear:both; 
+        position:relative; }
+    .location_title .title { font-size:60px; padding-top:25px; 
+    line-height:3;  text-align:center;  color:#000;
+        font-family:'AritaBuri', sans-serif; 
+        font-weight:900; cleaR:both; }
+    .location_title .text { min-height:60px; text-align:center;
+    font-size:14px;    line-height:2;  margin-top:13px;
+    color:#555;  font-family:'AritaBuri', sans-serif; 
+        font-weight:600; clear:both; }
+    .tbl .btn { display:block; width:150px; height:40px;
+        line-height:40px;  text-align:center; z-index:20; cursor:pointer;
+        color:#333; position:absolute; top:340px; } 
+    .tbl .btn:after { content:" |"; color:#999; font-weight:normal; padding-left:25px;  }
+    #tab1 .btn { left:450px;  }
+    #tab2 .btn { left:600px;  }    
+    #tab3 .btn { left:750px;  }
+    #tab3 .btn:after { content:""; }    
+    #tb .tbl:target .btn { color:#005295; font-weight:bold; }
+    .tbo { position:absolute; top:410px; left:0; z-index:2;
+        width:100%; box-sizing:border-box; }
+/*    #tb .tbo {  display: block; }*/
+/*    #tb .tbl .tbo {  display: none;  }*/
+    #tb .tbl:target .tbo { display:block; }
+    #tb .tbl .location_title { display:none; }
+    #tb .tbl:target .location_title { display:block; }
+    .location_banner { width:100%; height:300px; 
+        background-repeat:no-repeat; background-position:center center; }
+    .aboutus_case1 { background-image:url("./img/location_banner_01_pc.jpg"); }
+    .aboutus_case2 { background-image:url("./source/location_banner_02_pc.jpg"); }
+    .aboutus_case3 { background-image:url("./source/location_banner_03_pc.jpg"); }
+    .location_banner .banner_title {
+        position:absolute;   left:0;    top:5%;
+        width:100%;     font-size:42px;    line-height:1;
+        color:#fff;    margin-top:10px;   text-align:center; }
+    .location_area {clear:both; width:100%; height:80px; border-bottom:1px solid #ccc; }
+    .location_area:after { content:" "; display:block; width:100%; 
+        clear:both; height:100px; }
+    .location { clear:both; height:60px; width:1200px; 
+        margin:0 auto; }
+    .location li { float:left; line-height:40px; }
+    .location a { display:block; color:#555; padding:5px; float:left; 
+        font-size:14px; } 
+    .location a:after { content:" ";  width:12px;  height:15px; display:block;  background: url("./img/bg_location.png") no-repeat 100% 0;  float:right; margin-top:15px; }
+    .location li:last-child a:after { content:""; display:none; }
+    .location .home a { width:24px; 
+        height:18px; background: url("./img/bg_location.png") no-repeat 0 -24px; text-indent:-9999px; margin-top:16px;  }
+    .location .home a:after { margin-top:-1px;  }
+        
+    .subTabArea { clear:both; width:100%;  padding-top:160px;   }
+    .subConGroup { clear:both; width:1200px; margin:0 auto;
+        position:relative; }
+    .subConGroup label { display:block; width:350px; height:48px; 
+        line-height:48px; border-bottom:2px solid #005295; font-family: 'AritaDotumB', sans-serif; font-size:16px; text-align:center; 
+        position:absolute; z-index:10; top:20px; box-sizing:border-box; 
+        cursor:pointer; }        
+    .subConGroup label.item1 { left:0px; }
+    .subConGroup label.item2 { left:350px; }
+    .subConGroup label.item3 { left:700px; }
+    .subConGroup .raItem:checked ~ label { border-bottom:0px;
+        border-top:2px solid #005295; border-right:2px solid #005295; 
+        border-left:2px solid #005295; }
+    .subConGroup .raItem ~ .subConBox { display:none; }
+    .subConGroup .raItem:checked ~ .subConBox { display:block; }
+    .raItem { display:none; }
+    .subConBox { padding-top:80px; }
+    .boxTitle { text-align:center; line-height:1.3; font-size:68px;
+        color:#000; font-family:'AritaBuri', sans-serif; 
+        font-weight:900; padding-top:150px;  }
+    .boxTitle2 { text-align:center; line-height:1.3; font-size:42px;
+        color:#005295; font-family:'AritaBuri', sans-serif; 
+        font-weight:900; padding-top:200px;  z-index:21; opacity:0.6; }
+    .boxComent { font-family: 'AritaDotumSB', sans-serif; 
+        font-size:16px; line-height:2; color:#555; margin:20px auto;}
+    .download { display:block;   margin-top:50px;
+        width:95px;
+    background: url("./source/icon_download.png") no-repeat right center;
+    border-bottom:1px solid #111;   font-size:16px;  color:#111;
+    vertical-align: middle; margin-left:160px; }
+        
+    .page { background-repeat:no-repeat; }
+    #subCon11 { background-image:url("./source/img_box_01_pc.jpg");
+        background-position:left 20px; }
+    #subCon11 .boxComent { padding-left:55%; z-index:10; }
+    #subCon12 {  position:relative; }
+    #subCon12 .boxTitle { text-align:left; z-index:20; 
+        position:absolute; top:0; left:0; }
+    .boxWrap { clear:both; position:relative; }
+    #subCon12 .boxWrap { height:700px;        }
+    #subCon12 .boxWrap li { position:absolute; z-index:1; top:290px; 
+        width:50%; background-color:#f4f5f9;  height:800px; 
+        cursor:pointer;}    
+    #subCon12 .boxWrap li .boxComent { opacity:0.6; }
+    #subCon12 .boxWrap li:hover .boxTitle2 { opacity:1; }
+    #subCon12 .boxWrap li:hover .boxComent { opacity:1; }
+    #subCon12 .boxWrap li:after { content:" "; width:215px; height:152px; 
+        display:block; position:absolute; top:40px; 
+        background-size:100% auto; background-repeat:no-repeat; }
+    #subCon12 .boxWrap .left { left:0; z-index:3; }
+    #subCon12 .boxWrap .left:after {  right:-100px; 
+        background-image:url("./source/subCon12_1.png"); opacity:0.6; }    
+    #subCon12 .boxWrap .left:hover:after { opacity:1; }
+    #subCon12 .boxWrap .right { right:0;  }
+    #subCon12 .boxWrap .right:after {  left:-100px; 
+        background-image:url("./source/subCon12_2.png"); opacity:0.6; }    
+    #subCon12 .boxWrap .right:hover:after { opacity:1; }
+    #subCon12 .boxWrap .boxComent { padding:10px 160px; }
+    #subCon13 .logo { left:250px; margin-top:300px; width:300px; height:150px; background-size:100% auto; position:relative; }
+        
+    .subVisual { width:1200px; height:400px; margin-top:40px; 
+        background-size:100% cover; background-repeat:no-repeat; }
+    #subVs12 { background-image: url("./source/visual_banner_01.jpg"); }
+    .slide_control .title { font-family:'AritaBuri', sans-serif; 
+        font-weight:700; font-size:20px; display:block; line-height:3; 
+        padding-top:30px; text-align:center; }
+    .slide_control .title.type1 {  color:#d03b56; }
+    .slide_control .title.type2 {  color:#19826c; }
+    .slide_control .title.type3 {  color:#917100; }
+    .slide_control .text { font-family:'AritaBuri', sans-serif; 
+        font-weight:800; margin-top:40px;  font-size:32px; color:#555; 
+        text-align:center; }
+    .slide_control a .icon { display:block; background-repeat:no-repeat;
+        margin:50px auto;  width:28px;  padding-bottom:30px; 
+        background-size:100% cover; }
+    .icon_arrow_down_gray { background-image:url("./source/icon_arrow_down.png"); }
+    .subSlide { width:1200px; margin:0 auto; height:400px; 
+        box-sizing:border-box; }
+    .subSlide li { float:left; position:relative; 
+        box-sizing:border-box; height:400px; overflow:hidden; }
+    .subSlide li.col3 { width:300px; }
+    .subSlide li.col4 { width:400px; }
+    .subSlideTit { line-height:48px; background:rgba(0,0,0,0.7); 
+        color:#fff; text-indent:85px; position:absolute;
+        left:0; bottom:0; width:105%; }
+    .subSlide li img { display:block; border:1px solid #999; 
+     width:100%; }
+        
+    #subVs13 { height:500px; background-image:url("./source/visual_banner_02.jpg"); width:1050px;
+        background-position:center center; }
+    .contBox { clear:both; height:550px; width:500px; 
+        background-color:#fff; margin:40px 0px; 
+        background-repeat: no-repeat; 
+        background-position:center bottom; }
+    .contBox.left { float:left; }
+    .contBox.right { float:right; }
+    .contBox .pdbox { width:100%; height:500px; }
+    .contBox .case { clear:both; width:80%; margin:30px auto; 
+        border-bottom:4px solid #005295; height:50px; 
+         font-family:'AritaBuri', sans-serif; 
+        font-weight:700; }
+    .contBox .title { float:left; color:#005295; 
+        font-size:14px; }
+    .contBox .count_num { float:right; color:#005295;  
+        font-size:24px; font-weight:900; }
+    .contBox .sub_text { text-align:right; 
+        font-size:14px; color:#005295; padding-right:10%; }
+    .contBox.item1 { background-image:url("./source/ra13_1.png"); 
+        }
+    .contBox.item2 { background-image:url("./source/ra13_2.png"); 
+         margin-top:-100px; }
+    .contBox.item3 { background-image:url("./source/ra13_3.png"); 
+        margin-top:-200px; }
+    .contBox.item4 { background-image:url("./source/ra13_4.png"); 
+        margin-top:-300px; }
+    #tb12 .subConGroup label { width:600px; }
+    #tb12 .subConGroup label.item1 { left:0; }
+    #tb12 .subConGroup label.item2 { left:600px; }
+        
+    .ptxt { color:#ea7187; }
+    #subCon41 .boxTitle { width:50%; float:left; text-align:left; 
+        font-size:56px; padding-right:150px; padding-top:30px;
+        box-sizing:border-box; }
+    #subCon41 .boxComent { width:50%; float:right; padding:80px; 
+        box-sizing:border-box; padding-top: …}
+ 
+    </style>
+    
+            
+    <style>
+    .opener { display:block; width:70px; height:70px; 
+        background-color:#efbdc6; background-position:center center;
+        background-image:url("./img/btn_opener.png"); cursor:pointer; 
+        background-repeat:no-repeat; float:left; margin-top:40px; }
+    .logo { display:block; width:128px; height:64px; 
+        background-image:url("./img/h_logo.png"); background-repeat: no-repeat; background-size: 128px auto; float: left; margin-left: 25px; margin-top: 40px;}
+    .hd.active .opener { margin-top:20px; width:48px; height:48px; }
+    .hd.active .logo { background-position:center top; margin-top:30px; 
+        width:84px; height:42px; background-size:84px auto; }
+    .logo.w { background-position:center bottom; }
+    .logo.b { background-position:center top; }
+    .ckItem { display:none; }
+    #collapMenu { position:fixed; top:0; left:-710px; z-index:1001; 
+        transition:0.6s; background:#fff; 
+        width:700px; height:600px; }
+    #menu_ck:checked ~ #collapMenu { left:0; }   
+    .mainMenu { float:right; }
+    .mainMenu ul { clear:both; float:right; padding:5px; margin-top:15px; 
+        padding-top:15px; }
+    .mainMenu li { float:left; padding:5px; margin-left:20px; }
+    .mainMenu a { color:#fff;  font-family:'AritaDotumL', sans-serif;
+        font-size:16px; font-weight:300; }
+    .hd.active .mainMenu a { color:#333; }
+    .mainMenu .tnb { display:block; }
+    .hd.active .mainMenu .tnb { display:none; }
+    .mainMenu .tnb li:first-child a:after { content:"|"; padding-left: 25px; }
+    .mainMenu .tnb li:last-child a { color:#999; }
+    .mainMenu .gnb a { font-family:'AritaDotumB', sans-serif; }
+    .mainMenu .gnb a:hover { color:#58bdfb;  text-decoration:underline; }
+    .close { display:block; background-image: url("./img/btn_close.png"); background-repeat: no-repeat; 
+        background-position: center center; width:50px; height:50px; 
+        position:absolute; top:55px; left:50px; cursor:pointer; }
+    #collapMenu .logo { margin-left:120px; }
+    .colMenu { clear:both; margin-left:120px; padding-top:70px; }    
+    .colMenu li { height:70px; line-height:70px; position:relative; }
+    .colMenu a { display:block; line-height:70px; color:#333;
+        font-family: 'AritaBuri', sans-serif; font-weight:900; 
+        font-size:24px; }
+    .colMenu a:hover { color:#005295; }
+    .colSub { position:absolute; left:265px; z-index:1020; display:none; 
+        top:-60px; }
+    .colSub:before { content:" "; display:block; width:90px; height:60px; position:absolute; left:-100px; background-image:url("./colSub_line1.png"); top:32px; }
+    .colMenu li:hover .colSub {display:block; }
+    .colMenu li .colSub li { height:40px; line-height:40px;} 
+    .colMenu .colSub a { font-size:18px; }    
+    .colMenu .colSub a:hover { text-decoration:underline; }
+    </style>
+</head>
+<body>
+    <body>
+<div class="wrap">
+    <input type="checkbox" id="menu_ck" class="ckItem">
+    <header class="hd">
+        <div class="hdWrap">
+            <label for="menu_ck" class="opener"></label>
+            <a href="index.html" class="logo w"> </a>
+            <nav class="mainMenu">
+                <ul class="tnb">
+                    <li><a href="">EN</a></li>
+                    <li><a href="">CN</a></li>
+                    <li><a href="">JP</a></li>
+                    <li><a href="">TH</a></li>
+                    <li><a href="">VN</a></li>
+                </ul>
+                <ul class="gnb">
+                    <li><a href="">COMMUNITY</a></li>
+                    <li><a href="">REVIEW</a></li>
+                    <li><a href="">STORE</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <nav id="collapMenu">
+        <label for="menu_ck" class="close"></label>
+        <a href="index.html" class="logo b"></a>
+        <ul class="colMenu">
+            <li><a href="sub1.html#tab1">Wig</a>
+                <ul class="colSub">
+                    <li><a href="">전체가발</a></li>
+                    <li><a href="">업스타일</a></li>
+                    <li><a href="">포니테일</a></li>
+                    <li><a href="">앞머리</a></li>
+                    <li><a href="">붙임머리</a></li>
+                    <li><a href="">하이커버피스</a></li>
+                </ul>
+            </li>
+            <li><a href="sub2.html#tab1">BEST</a>
+                <ul class="colSub">
+                    <li><a href="">앞머리</a></li>
+                    <li><a href="">붙임머리</a></li>
+                    <li><a href="">포니테일</a></li>
+                    <li><a href="">업스타일</a></li>
+                    <li><a href="">반가발</a></li>
+                    <li><a href="">전체가발</a></li>
+                    <li><a href="">탑커버</a></li>
+                </ul>
+            </li>
+            <li><a href="sub3.html#tab1">ACC</a>
+                <ul class="colSub">
+                </ul>
+            </li>
+            <li><a href="sub4.html#tab1">SALE</a>
+                <ul class="colSub">
+
+                </ul>
+            </li>
+            <li><a href="sub5.html#tab1">PINKAGE</a>
+                <ul class="colSub">
+                    <li><a href="">COMMUNUITY</a></li>
+                    <li><a href="">REVIEW</a></li>
+                    <li><a href="">SOTRE</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+    <div id="tb" class="tab" style="position:relative;">
+        <ul class="conBox">
+           <li class="tbl first" id="tab1">
+                <a href="#tab1" class="btn">Vision</a>
+                <div class="location_title">
+                    <h2 class="title">About Us</h2>
+                    <p class="text">우리만이 창조할 수 있는 아름다움으로 여성의 삶을 아름답게 하는 것을 우리의 소명으로 생각합니다.<br>‘A MORE Beautiful World’라는 비전 아래 모든 여성들이 저마다 꿈꾸는 삶을 누리며 더 아름다운 세상을 만들어 갈 수 있도록 여성의 아름다운 삶에 기여합니다.</p>
+                </div>
+                <div id="tb11" class="tbo">
+                    <div class="location_banner aboutus_case1">
+                        <h3 class="banner_title">Vision</h3>
+                    </div>
+                    <div class="location_area">
+                        <ul class="location">
+                            <li class="home"><a href="index.html"><span class="blind">HOME</span></a></li>
+                            <li><a href="sub1.html#tab1">About Us</a></li>
+                            <li><a>Vision</a></li>
+                        </ul>
+                    </div>
+                    <div class="subTabArea">
+                        <ul class="subConGroup">
+                            <li class="subCon item1">
+                                <input type="radio" name="raGrp1" id="ra11" class="raItem" checked="">
+                                <label for="ra11" class="subBtn item1">소개</label>
+                                <div class="subConBox">
+                                    <section class="page" id="subCon11" style="height: 898px;">
+                                        <h2 class="boxTitle">Manifesto</h2>
+                                        <p class="boxComent">아모레퍼시픽은 믿습니다.</p>
+
+                                        <p class="boxComent">모든 여성들이 무한한 능력과 끊임없는 열정으로<br>
+                                        자신과 가족, 사회와 인류를 위해<br>
+                                        풍요롭고 아름다운 삶을 가꾸어 왔으며,<br>
+                                            앞으로도 세상을 더 아름답게 만들 수 있다는 것을.</p>
+
+                                        <p class="boxComent">여성의 삶이 아름다워졌을 때,<br>
+                                            비로소 이 세상 또한 아름다워질 수 있다는 것을 믿기에</p>
+
+                                        <p class="boxComent">아모레퍼시픽은 여성의 삶을 아름답게 하는 것을 우리의 소명으로 생각합니다.</p>
+
+                                        <p class="boxComent">아모레퍼시픽은 A MORE Beautiful World라는 비전 아래<br>
+                                        모든 여성들이 저마다 꿈꾸는 삶을 누리며<br>
+                                        더 아름다운 세상을 만들어 갈 수 있도록<br>
+                                            여성들의 아름다운 삶에 기여하고자 합니다.</p>
+                                    </section>
+                                    <section class="page" id="subCon12" style="height: 898px;">
+                                        <h2 class="boxTitle">Visual<br>
+                                        Identity</h2>
+                                        <ul class="boxWrap">
+                                            <li class="left">
+                                                <h3 class="boxTitle2">아리따글꼴</h3>
+                                                <p class="boxComent">사회와 함께 아름다움을 향유하기 위해 개발 된 글꼴입니다. 아름다움으로 나눔의 가치를 실현하고자 하는 아모레퍼시픽의 기업 아이덴티티를 담은 글꼴이자 누구나 무료로 사용할 수 있도록 배포하는 나눔 글꼴입니다.</p>
+                                                <a href="" class="download">다운로드</a>
+                                            </li>
+                                            <li class="right">
+                                                <h3 class="boxTitle2">Camelia Line</h3>
+                                                <p class="boxComent">동백꽃은 혹독한 추위를 견디며 아름답게 피어납니다. 그 강인하고 아름다운 정신의 동백꽃을 모티브로 만들어진 Camellia Line은 A MORE Beautiful World를 만들어 가고자 하는 아모레퍼시픽 CSR의 정체성을 잘 드러냅니다.</p>
+                                            </li>
+                                        </ul>
+                                    </section>
+                                    <section class="page" id="subCon13" style="height: 898px;">
+                                        <div class="logo w"></div>
+                                    </section>
+                                </div>
+                            </li>
+                            <li class="subCon item2">
+                                <input type="radio" name="raGrp1" id="ra12" class="raItem">
+                                <label for="ra12" class="subBtn item2">3대 이니셔티브</label>
+                                <div class="subConBox">
+                                    <div class="subVisual" id="subVs12">
+                                        <h2 class="boxTitle" style="color:#fff;">Our Initiatives</h2>
+                                        <p class="boxComent" style="color:#fff; padding:10px 120px;">아모레퍼시픽은 더 아름다운 세상을 위해 여성, 자연생태, 문화 3대 이니셔티브를 중심으로
+사회에 긍정적 영향을 미치는 다양한 사회공헌 프로그램을 운영하고 있습니다.</p>
+                                   </div>
+                                    <section class="page" id="subCon21" style="height: 898px;">
+                                        <div class="slide_control">
+                                            <a href="#tabs_list1" class="tab_triger tab_list1" title="컨텐츠 열기">
+                                                <span class="title type1">Women</span>
+                                                <p class="text">여성의<br>건강과 웰빙,<br>역량 강화</p>
+                                                <i class="icon icon_arrow_down_gray"></i>
+                                            </a>
+                                            <ul class="subSlide">
+                                                <li class="subSlideItem col4">
+                                                    <div class="picBox">
+                                                        <img src="./source/drop_slide1_img_01.jpg" alt="">
+                                                    </div>
+                                                    <h4 class="subSlideTit">메이크업 유아 라이프</h4>
+                                                </li>
+                                                <li class="subSlideItem col4">
+                                                    <div class="picBox">
+                                                        <img src="./source/drop_slide1_img_02.jpg" alt="">
+                                                    </div>
+                                                    <h4 class="subSlideTit">핑크 리본 캠페인</h4>
+                                                </li>
+                                                <li class="subSlideItem col4">
+                                                    <div class="picBox">
+                                                        <img src="./source/drop_slide1_img_03.jpg" alt="">
+                                                    </div>
+                                                    <h4 class="subSlideTit">희망 가게</h4>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </section>
+                                    <section class="page" id="subCon22" style="height: 898px;">
+                                        <div class="slide_control">         
+                                            <a href="#tabs_list2" class="tab_triger tab_list2" title="컨텐츠 열기">
+                                                <span class="title type2">Ecosystem</span>
+                                                <p class="text">자연의<br>건강한 아름다움과<br>공존하는 삶</p>
+                                                <i class="icon icon_arrow_down_gray"></i>
+                                            </a>
+                                            <ul class="subSlide">
+                                                <li class="subSlideItem col4">
+                                                    <div class="picBox">
+                                                        <img src="./source/drop_slide2_img_01.jpg" alt="">
+                                                    </div>
+                                                    <h4 class="subSlideTit">메이크업 유아 라이프</h4>
+                                                </li>
+                                                <li class="subSlideItem col4">
+                                                    <div class="picBox">
+                                                        <img src="./source/drop_slide2_img_02.jpg" alt="">
+                                                    </div>
+                                                    <h4 class="subSlideTit">핑크 리본 캠페인</h4>
+                                                </li>
+                                                <li class="subSlideItem col4">
+                                                    <div class="picBox">
+                                                        <img src="./source/drop_slide2_img_03.jpg" alt="">
+                                                    </div>
+                                                    <h4 class="subSlideTit">희망 가게</h4>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </section>
+                                    <section class="page" id="subCon23" style="height: 898px;">
+                                        <div class="slide_control">
+                                            <a href="#tabs_list3" class="tab_triger tab_list3" title="컨텐츠 열기">
+                                                <span class="title type3">Culture</span>
+                                                <p class="text">문화의<br>가치 발견과<br>공유</p>
+                                                <i class="icon icon_arrow_down_gray"></i>
+                                            </a>
+                                            <ul class="subSlide">
+                                                <li class="subSlideItem col4">
+                                                    <div class="picBox">
+                                                        <img src="./source/drop_slide3_img_01.jpg" alt="">
+                                                    </div>
+                                                    <h4 class="subSlideTit">메이크업 유아 라이프</h4>
+                                                </li>
+                                                <li class="subSlideItem col4">
+                                                    <div class="picBox">
+                                                        <img src="./source/drop_slide3_img_02.jpg" alt="">
+                                                    </div>
+                                                    <h4 class="subSlideTit">핑크 리본 캠페인</h4>
+                                                </li>
+                                                <li class="subSlideItem col4">
+                                                    <div class="picBox">
+                                                        <img src="./source/drop_slide3_img_03.jpg" alt="">
+                                                    </div>
+                                                    <h4 class="subSlideTit">희망 가게</h4>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </section>
+                                    <section class="hpage"></section>
+                                </div>
+                            </li>
+                            <li class="subCon item3">
+                                <input type="radio" name="raGrp1" id="ra13" class="raItem">
+                                <label for="ra13" class="subBtn item3">활동 성과</label>
+                                <div class="subConBox">
+                                    <div class="subVisual" id="subVs13">
+                                        <h2 class="boxTitle" style="color:#fff;">Our Initiatives</h2>
+                                        <p class="boxComent" style="color:#fff; padding:10px 120px;">아모레퍼시픽은 더 아름다운 세상을 위해 여성, 자연생태, 문화 3대 이니셔티브를 중심으로
+사회에 긍정적 영향을 미치는 다양한 사회공헌 프로그램을 운영하고 있습니다.</p>
+                                   </div>
+                                    <section class="page" style="height: 898px;">
+                                        <div class="pageWrap">
+                                            <div class="contBox left item1">
+                                                <div class="pdbox">
+                                                    <div class="case">
+                                                        <span class="title">사회공헌 집행금액</span>
+                                                        <strong class="count_num"><span class="number">206</span>억</strong>
+                                                    </div>
+                                                    <p class="sub_text"><span>(16년 240억)</span></p>
+                                                </div>
+                                            </div>
+                                            <div class="contBox right item2">
+                                                <div class="pdbox">
+                                                    <div class="case">
+                                                        <span class="title">매출액 대비<br>사회공헌 집행금액</span>
+                                                        <strong class="count_num"><span class="number">0.34</span>%</strong>
+                                                    </div>
+                                                    <p class="sub_text"><span>(16년 0.36%)</span></p>
+                                                </div>
+                                            </div>
+                                            <div class="contBox left item3">
+                                                <div class="pdbox">
+                                                    <div class="case">
+                                                        <span class="title">임직원<br>나눔 활동 참여</span>
+                                                        <strong class="count_num"><span class="number">80.8</span>%</strong>
+                                                    </div>
+                                                    <p class="sub_text"><span>*아모레퍼시픽그룹기준</span></p>
+                                                </div>
+                                            </div>
+                                            <div class="contBox right item4">
+                                                <div class="pdbox">
+                                                    <div class="case">
+                                                        <span class="title">임직원<br>나눔 활동 참여</span>
+                                                        <strong class="count_num"><span class="number">80.8</span>%</strong>
+                                                    </div>
+                                                    <p class="sub_text"><span>*아모레퍼시픽그룹기준</span></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </section>
+                                    <section class="hpage"></section>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+           </li>
+           <li class="tbl" id="tab2">
+                <a href="#tab2" class="btn">Commitment</a>
+                <div class="location_title">
+                    <h2 class="title">About Us</h2>
+                    <p class="text">우리만이 창조할 수 있는 아름다움으로 여성의 삶을 아름답게 하는 것을 우리의 소명으로 생각합니다.<br>‘A MORE Beautiful World’라는 비전 아래 모든 여성들이 저마다 꿈꾸는 삶을 누리며 더 아름다운 세상을 만들어 갈 수 있도록 여성의 아름다운 삶에 기여합니다.</p>
+                </div>
+                <div id="tb12" class="tbo">
+                    <div class="location_banner aboutus_case2">
+                        <h3 class="banner_title">Commitment</h3>
+                    </div>
+                    <div class="location_area">
+                        <ul class="location">
+                            <li class="home"><a href="index.html"><span class="blind">HOME</span></a></li>
+                            <li><a href="sub1.html#tab1">About Us</a></li>
+                            <li><a>Commitment</a></li>
+                        </ul>
+                    </div>
+                    <div class="subTabArea">
+                        <ul class="subConGroup">
+                            <li class="subCon item1">
+                                <input type="radio" name="raGrp2" id="ra21" class="raItem" checked="">
+                                <label for="ra21" class="subBtn item1">소개</label>
+                                <div class="subConBox">
+                                    <section class="page" id="subCon41" style="height: 898px;">
+                                        <img src="./source/visual_banner_03.jpg" alt="" width="1200" style="margin-top:50px">
+                                        <br>
+                                        <h2 class="boxTitle">
+                                           <span class="ptxt">2020년,<br>
+                                            20만명의 여성</span>이
+                                            아름답게 피어나다</h2>
+                                        <p class="boxComent">‘20 by 20' Commitment는 2020년까지 여성 20만 명의 건강과 웰빙, 경제적 역량 강화를 통해 여성의 삶을 아름답게 하는 데 기여하겠다는 아모레퍼시픽의 약속입니다. 아모레퍼시픽은 여성과 함께 성장해온 기업으로서 여성의 삶을 아름답게 하는 것이 곧 더 아름다운 세상을 위한 것이라 믿고 있습니다.</p>
+
+                                        <p class="boxComent"></p>
+                                    </section>
+                                    <section class="page" id="subCon42" style="height: 898px;">
+                                        <h2 class="boxTitle">모두가 차별 없이<br>아름다움을 즐기는 삶
+                                        </h2>
+                                        <ul class="boxWrap">
+                                            <li class="right">
+                                                <p class="boxComent">한국뿐만 아니라 중국, 싱가포르, 홍콩, 대만, 베트남 등 아모레퍼시픽 법인이 위치한 국가에서 여성의 삶에 아름답게 하기 위해 노력하고 있으며, UN에서 진행하고 있는 Every Woman Every Child라는 글로벌 무브먼트에 동참하여 우리의 비전을 더 많은 사람들과 공유하고, 글로벌 기업 시민으로서 책임을 다하고자 합니다.</p>
+                                            </li>
+                                            <li class="right">
+                                                <img src="./source/ewec_logo_color_ver.png" alt="" style="padding-left:100px">
+                                            </li>
+                                            <li class="right">
+                                                <p class="boxComent">Every Woman Every Child는 여성, 아동, 청소년의 건강 및 웰빙을 위해 2010년부터 UN이 진행하는 글로벌 무브먼트입니다. 정부, 시민사회, 기업 등이 참여하고 있으며 2015 년 이래 62 개국 150 여 개의 이해 관계자들이 EWEC 무브먼트에 참여하고 있습니다.</p>
+                                            </li>
+                                        </ul>
+                                    </section>
+                                    <section class="page" id="subCon43" style="height: 898px;">
+                                        <h2 class="boxTitle">‘20 by 20’ Commitment                         </h2>
+                                        <img src="./source/visual_banner_04.jpg" alt="" width="1200">
+                                        <ul class="boxWrap">
+                                            <li class="right">
+                                                <p class="boxComent">20 by 20 Commitment를 이행하기 위해 매년 최소 70억원을 지원하여 5만명의 여성의 삶을 아름답게 하는데 기여하겠습니다.</p>
+                                            </li>
+                                        </ul>
+                                    </section>
+                                    <section class="hpage"></section>
+                                </div>
+                            </li>
+                            <li class="subCon item2">
+                                <input type="radio" name="raGrp2" id="ra22" class="raItem">
+                                <label for="ra22" class="subBtn item2">국가 및 지역별 현황</label>
+                                <div class="subConBox">
+                                    <section class="page" id="subCon21" style="height: 898px;">
+                                        <div class="slide_control">
+                                            <a href="#tabs_list1" class="tab_triger tab_list1" title="컨텐츠 열기">
+                                                <span class="title type1">Women</span>
+                                                <p class="text">여성의<br>건강과 웰빙,<br>역량 강화</p>
+                                                <i class="icon icon_arrow_down_gray"></i>
+                                            </a>
+                                            <ul class="subSlide">
+                                                <li class="subSlideItem col4">
+                                                    <div class="picBox">
+                                                        <img src="./source/drop_slide1_img_01.jpg" alt="">
+                                                    </div>
+                                                    <h4 class="subSlideTit">메이크업 유아 라이프</h4>
+                                                </li>
+                                                <li class="subSlideItem col4">
+                                                    <div class="picBox">
+                                                        <img src="./source/drop_slide1_img_02.jpg" alt="">
+                                                    </div>
+                                                    <h4 class="subSlideTit">핑크 리본 캠페인</h4>
+                                                </li>
+                                                <li class="subSlideItem col4">
+                                                    <div class="picBox">
+                                                        <img src="./source/drop_slide1_img_03.jpg" alt="">
+                                                    </div>
+                                                    <h4 class="subSlideTit">희망 가게</h4>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </section>
+                                    <section class="page" id="subCon22" style="height: 898px;">
+                                        <div class="slide_control">         
+                                            <a href="#tabs_list2" class="tab_triger tab_list2" title="컨텐츠 열기">
+                                                <span class="title type2">Ecosystem</span>
+                                                <p class="text">자연의<br>건강한 아름다움과<br>공존하는 삶</p>
+                                                <i class="icon icon_arrow_down_gray"></i>
+                                            </a>
+                                            <ul class="subSlide">
+                                                <li class="subSlideItem col4">
+                                                    <div class="picBox">
+                                                        <img src="./source/drop_slide2_img_01.jpg" alt="">
+                                                    </div>
+                                                    <h4 class="subSlideTit">메이크업 유아 라이프</h4>
+                                                </li>
+                                                <li class="subSlideItem col4">
+                                                    <div class="picBox">
+                                                        <img src="./source/drop_slide2_img_02.jpg" alt="">
+                                                    </div>
+                                                    <h4 class="subSlideTit">핑크 리본 캠페인</h4>
+                                                </li>
+                                                <li class="subSlideItem col4">
+                                                    <div class="picBox">
+                                                        <img src="./source/drop_slide2_img_03.jpg" alt="">
+                                                    </div>
+                                                    <h4 class="subSlideTit">희망 가게</h4>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </section>
+                                    <section class="page" id="subCon23" style="height: 898px;">
+                                        <div class="slide_control">
+                                            <a href="#tabs_list3" class="tab_triger tab_list3" title="컨텐츠 열기">
+                                                <span class="title type3">Culture</span>
+                                                <p class="text">문화의<br>가치 발견과<br>공유</p>
+                                                <i class="icon icon_arrow_down_gray"></i>
+                                            </a>
+                                            <ul class="subSlide">
+                                                <li class="subSlideItem col4">
+                                                    <div class="picBox">
+                                                        <img src="./source/drop_slide3_img_01.jpg" alt="">
+                                                    </div>
+                                                    <h4 class="subSlideTit">메이크업 유아 라이프</h4>
+                                                </li>
+                                                <li class="subSlideItem col4">
+                                                    <div class="picBox">
+                                                        <img src="./source/drop_slide3_img_02.jpg" alt="">
+                                                    </div>
+                                                    <h4 class="subSlideTit">핑크 리본 캠페인</h4>
+                                                </li>
+                                                <li class="subSlideItem col4">
+                                                    <div class="picBox">
+                                                        <img src="./source/drop_slide3_img_03.jpg" alt="">
+                                                    </div>
+                                                    <h4 class="subSlideTit">희망 가게</h4>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </section>
+                                    <section class="hpage"></section>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+           </li>
+           <li class="tbl" id="tab3">
+                <a href="#tab3" class="btn">공익재단</a>
+                <div class="location_title">
+                    <h2 class="title">About Us</h2>
+                    <p class="text">우리만이 창조할 수 있는 아름다움으로 여성의 삶을 아름답게 하는 것을 우리의 소명으로 생각합니다.<br>‘A MORE Beautiful World’라는 비전 아래 모든 여성들이 저마다 꿈꾸는 삶을 누리며 더 아름다운 세상을 만들어 갈 수 있도록 여성의 아름다운 삶에 기여합니다.</p>
+                </div>
+                <div id="tb13" class="tbo">
+                    <div class="location_banner aboutus_case3">
+                        <h3 class="banner_title">공익재단</h3>
+                    </div>
+                    <div class="location_area">
+                        <ul class="location">
+                            <li class="home"><a href="index.html"><span class="blind">HOME</span></a></li>
+                            <li><a href="sub1.html#tab1">About Us</a></li>
+                            <li><a>공익재단</a></li>
+                        </ul>
+                    </div>
+                    <section class="page" id="subCon51" style="height: 898px;">
+                       <div class="pageFrame" id="vs51">
+                           <h2 class="pageFrameTitle">
+                               아모레퍼시픽재단
+                           </h2>
+                            <ul class="subSlideFrame">
+                                <li class="data item1">
+                                    <input type="radio" name="ra310" id="ra311" class="raItem item1" data-index="0" checked="">
+                                    <div class="imgFrame left">
+                                        <img src="./source/slide1_img_01.jpg" alt="">
+                                    </div>
+                                    <div class="txtFrame right">
+                                        <p class="slideTxt"><span class="slideTit">아모레퍼시픽재단</span><br>은 학술 사업과 교육, 문화 사업을 지원하여 문화의 가치를 발굴하고, 그 가치를 대중과 소통하는 데 기여하고자 설립되었습니다. 1973년 설립 후 현재에 이르기까지 ‘아시아의 미’, ‘여성과 문화’를 핵심 키워드로 과학과 예술, 일상과 학문의 경계를 넘나들며 세상과 소통하는 학술 연구를 지원하고 있으며, 그 결과를 더 많은 사람들에게 공유하고 새로운 가치 창출로 이어질 수 있도록 노력하고 있습니다.</p>
+                                    </div>
+                                </li>
+                                <li class="data item2">
+                                    <input type="radio" name="ra310" id="ra312" class="raItem item2" data-index="1">
+                                    <div class="imgFrame left">
+                                        <img src="./source/slide1_img_02.jpg" alt="">
+                                    </div>
+                                    <div class="txtFrame right">
+                                        <p class="slideTxt"><span class="slideTit">‘여성과 문화’ 학술 연구비 지원 사업</span><br>
+2007년부터 ‘여성과 문화’를 주제로 박사 학위 소지자를 대상으로 개인 연구를 지원하고 있습니다. ‘여성과 문화’는 아모레퍼시픽재단의 장기적 연구 주제로서 다양한 분야에 걸친 우수 연구를 발굴하고자 기획되었으며, 시공간을 가로지르는 여성의 삶과 문화에 관한 다층적 연구를 지원합니다. 우수 결과물을 단행본으로 출간하는 등 학술 연구의 대중적 확산 및 소통을 도모하고 있습니다.</p>
+                                    </div>
+                                </li>
+                                <li class="data item3">
+                                    <input type="radio" name="ra310" id="ra313" class="raItem item3" data-index="2">
+                                    <div class="imgFrame left">
+                                        <img src="./source/slide1_img_03.jpg" alt="">
+                                    </div>
+                                    <div class="txtFrame right">
+                                        <p class="slideTxt"><span class="slideTit">‘아시아의 미’ 연구 사업</span><br>
+본 연구 사업은 아시아의 ‘미(美)’에 주목하며 2011년부터 시작되었습니다.
+주로 시각을 중심으로 형성된 서구의 예술과 인간 몸에 대한 미 인식과 다르게, 오감을 통해 구성된 생활 속의 미와 미적 체험에 가치를 두는 아시아의 미를 집중적으로 연구하고 있습니다. 연구 결과물은 ‘아시아의 미(Asian Beauty)’ 시리즈로 발간되며, 2014년 첫 출간을 시작으로 총 20여권의 시리즈로 엮어낼 계획입니다. 현재까지 총 7권의 시리즈가 발간되었습니다.</p>
+                                    </div>
+                                </li>
+                                <li class="data item4">
+                                    <input type="radio" name="ra310" id="ra314" class="raItem item4" data-index="3">
+                                    <div class="imgFrame left">
+                                        <img src="./source/slide1_img_04.jpg" alt="">
+                                    </div>
+                                    <div class="txtFrame right">
+                                        <p class="slideTxt"><span class="slideTit">아시아의 美 강좌</span><br>
+‘아시아의 미’ 연구 결과물의 대중 소통을 위해 2012년부터 시작된 강좌로, ‘아시아의 미’에 대한 다양한 계층의 전문가들의 견해를 대중과 나누는 대중 소통형 사업입니다. 연간 4회 개최되며, 매년 특색 있는 주제로 대중과 적극적으로 소통을 지속하고 있습니다. 추후 아시아의 미 시리즈의 저자 및 연구자, ‘아시아의 미’ 연구팀을 초청하여 강좌를 진행할 계획입니다.</p>
+                                    </div>
+                                </li>
+                            </ul>
+                            <ul class="btnFrame">
+                                <li><label for="ra311" data-index="0" class="active"></label></li>
+                                <li><label for="ra312" data-index="1"></label></li>
+                                <li><label for="ra313" data-index="2"></label></li>
+                                <li><label for="ra314" data-index="3"></label></li>
+                            </ul>
+                        </div>
+                    </section>
+                    <section class="page" id="subCon52" style="height: 898px;">
+                       <div class="pageFrame" id="vs52">
+                           <h2 class="pageFrameTitle">
+                               아모레퍼시픽복지재단
+                           </h2>
+                            <ul class="subSlideFrame">
+                                <li class="data item1">
+                                   <input type="radio" name="ra320" id="ra321" class="raItem item1" data-index="0" checked="">
+                                    <div class="txtFrame left">
+                                        <p class="slideTxt"><span class="slideTit">아모레퍼시픽복지재단</span><br>은 1982년 아름답고 풍요로운 사회 구현을 목표로 취약계층 여성의 복지증진과 삶의 질 향상을 위해 설립되었습니다. 하나의 공간 안에서 '공간의 아름다움을 통한 웰빙 실현'을 위해 공간 문화 개선 사업과 공간 활용 프로그램 지원 사업, 정리 수납 컨설팅 사업을 진행하고 있습니다. 공간 개선이 단순 시설 개선의 개념에 국한되지 않고, 사회적 돌봄이 필요한 여성들의 삶의 변화와 이후 자립을 지원할 수 있도록 노력하고 있습니다.</p>
+                                    </div>
+                                    <div class="imgFrame right">
+                                        <img src="./source/slide2_img_01.jpg" alt="">
+                                    </div>
+                                </li>
+                                <li class="data item2">
+                                    <input type="radio" name="ra320" id="ra322" class="raItem item2" data-index="1">
+                                    <div class="txtFrame left">
+                                        <p class="slideTxt">여성이 아름답고 건강한 삶을 영위하는 것이 곧 사회의 행복을 높이는 길이기에 우리는 공간의 아름다움을 통해 여성의 든든한 삶의 동반자로서 함께 하겠습니다. 이러한 도전은 여성가장, 폭력피해여성 등 사회적 돌봄이 필요한 여성이 사회의 당당한 일원으로 행복하게 살아가도록 돕는 길잡이가 될 것입니다.</p>
+                                    </div>
+                                    <div class="imgFrame right">
+                                        <img src="./source/slide2_img_02.jpg" alt="">
+                                    </div>
+                                </li>
+                                <li class="data item3">
+                                    <input type="radio" name="ra320" id="ra323" class="raItem item3" data-index="2">
+                                    <div class="txtFrame left">
+                                        <p class="slideTxt"><span class="slideTit">공간문화개선사업</span><br>
+안전하고 쾌적한 공간개선을 통해, 열악한 여성 생활 이용 시설 및 비영리 단체의 공간을 돌봄과 치유의 공간으로의 변화시키고 여성의 삶의 변화를 지원하는 사업입니다. 2005년에 시작돼 올해로 13년째를 맞이한 공간문화개선사업은 지금까지 전국의 총 175개 여성 시설과 비영리 여성 단체의 공간을 안전하고 쾌적하게 변화시켰습니다. 햇볕이 들어오지 않는 사무실, 공간이 부족해 창고처럼 사용하던 상담실과 낡고 악취가 나는 화장실 등이 여성들에게 안정감과 행복을 주는 공간으로 개선 되었습니다.</p>
+                                    </div>
+                                    <div class="imgFrame right">
+                                        <img src="./source/slide2_img_03.jpg" alt="">
+                                    </div>
+                                </li>
+                                <li class="data item4">
+                                    <input type="radio" name="ra320" id="ra324" class="raItem item4" data-index="3">
+                                    <div class="txtFrame left">
+                                        <p class="slideTxt"><span class="slideTit">정리수납 컨설팅 사업</span><br>
+2016년에 새롭게 시작된 정리수납 컨설팅 사업은 정리수납 컨설턴트 과정을 수료한 경력 단절 여성들이 정리수납 전문가로서, 공간문화개선사업 시설의 정리수납 컨설팅을 진행해 주는 사업입니다. 공간 문화 개선 사업과 연계하여 시설의 이용자와 종사자들의 시설 만족도 제고 및 업무 효율을 높이고, 나아가 경력 단절 여성의 지속적인 일자리 창출에 기여하고 여성이 당당한 삶을 살 수 있도록 지원하고자 합니다.</p>
+                                    </div>
+                                    <div class="imgFrame right">
+                                        <img src="./source/slide2_img_04.jpg" alt="">
+                                    </div>
+                                </li>
+                            </ul>
+                            <ul class="btnFrame">
+                                <li><label for="ra321" data-index="0" class="active"></label></li>
+                                <li><label for="ra322" data-index="1"></label></li>
+                                <li><label for="ra323" data-index="2"></label></li>
+                                <li><label for="ra324" data-index="3"></label></li>
+                            </ul>
+                        </div>
+                    </section>
+                    <section class="page" id="subCon53" style="height: 898px;">
+                       <div class="pageFrame" id="vs53">
+                           <h2 class="pageFrameTitle">
+                               한국유방건강재단
+                           </h2>
+                            <ul class="subSlideFrame">
+                                <li class="data item1">
+                                    <input type="radio" name="ra330" id="ra331" class="raItem item1" data-index="0" checked="">
+                                    <div class="imgFrame left">
+                                        <img src="./source/slide1_img_01.jpg" alt="">
+                                    </div>
+                                    <div class="txtFrame right">
+                                        <p class="slideTxt"><span class="slideTit">한국유방건강재단</span><br>은 아모레퍼시픽이 지난 2000년 설립기금 전액을 출자하여 국내 최초로 설립한 유방건강 비영리 공익재단입니다. 유방건강에 대한 올바른 인식을 고취시키기 위한 핑크리본캠페인을 필두로 대국민 유방건강강좌, 저소득층 여성을 위한 유방암 수술치료비 지원, 학술연구비지원, 유방암 환우회 및 다문화여성을 포함한 소외계층의 유방건강을 지키기 위한 다양한 활동 등 유방건강과 관련한 전방위적 사업을 전개하고 있습니다.</p>
+                                    </div>
+                                </li>
+                                <li class="data item2">
+                                    <input type="radio" name="ra330" id="ra332" class="raItem item2" data-index="1">
+                                    <div class="imgFrame left">
+                                        <img src="./source/slide1_img_02.jpg" alt="">
+                                    </div>
+                                    <div class="txtFrame right">
+                                        <p class="slideTxt">연중 전개되는 한국유방건강재단과 아모레퍼시픽의 핑크리본캠페인 활동은, 우리나라 여성암 발병률 1위(갑상선암 제외)임에도 여전히 유방건강에 대한 인식이 낮은 사회에서 여성들에게 유방건강의 중요성을 알림과 동시에 유방자가검진을 통한 유방암 조기 발견, 조기 치료를 장려함으로써 여성의 소중한 건강을 지키는 데 크게 이바지하고 있습니다.</p>
+                                    </div>
+                                </li>
+                                <li class="data item3">
+                                    <input type="radio" name="ra330" id="ra333" class="raItem item3" data-index="2">
+                                    <div class="imgFrame left">
+                                        <img src="./source/slide1_img_03.jpg" alt="">
+                                    </div>
+                                    <div class="txtFrame right">
+                                        <p class="slideTxt"><span class="slideTit">핑크런</span><br>
+아모레퍼시픽이 한국유방건강재단과 함께 펼치는 행사로, 유방건강에 관한 유용한 정보를 제공하고, 조기검진의 중요성을 알리기 위한 취지로 매년 전국 5개 지역에서 개최되는 러닝 축제입니다. 대회 참가비 전액(10,000원)은 한국유방건강재단에 기부되어 유방암 환자의 수술비 지원 및 검진 지원에 사용됩니다. 2001년부터 지난해까지 약 29만 9천여 명의 참가를 통해 총 32억 원이 넘는 기부금을 한국유방건강재단에 전달하며 건강한 나눔 문화 확산에도 기여하고 있습니다.</p>
+                                    </div>
+                                </li>
+                                <li class="data item4">
+                                    <input type="radio" name="ra330" id="ra334" class="raItem item4" data-index="3">
+                                    <div class="imgFrame left">
+                                        <img src="./source/slide1_img_04.jpg" alt="">
+                                    </div>
+                                    <div class="txtFrame right">
+                                        <p class="slideTxt"><span class="slideTit">핑크투어</span><br>
+유방암 조기발견을 실천할 수 있도록 유방자가검진 방법을 알려주는 찾아가는 유방건강교육 프로그램입니다. 2001년부터 2016년까지 전국에서 970여회에 걸쳐 24만명이 넘는 일반인이 유방자가검진 및 생활 속 유방건강 강좌를 수강하며 대표적인 유방건강 교육 프로그램으로 자리매김하고 있습니다.</p>
+                                    </div>
+                                </li>
+                            </ul>
+                            <ul class="btnFrame">
+                                <li><label for="ra331" data-index="0" class="active"></label></li>
+                                <li><label for="ra332" data-index="1"></label></li>
+                                <li><label for="ra333" data-index="2"></label></li>
+                                <li><label for="ra334" data-index="3"></label></li>
+                            </ul>
+                        </div>
+                    </section>
+                    <section class="hpage"></section>
+                </div>
+           </li>
+        </ul>
+    </div>
+    <footer class="ft">
+        <div class="ftFrame">
+            <nav class="fnb">
+                <ul class="left">
+                    <li><a href="" class="meet">Meet Us</a></li>
+                    <li><a href="" class="letter">뉴스레터 구독</a></li>
+                </ul>
+                <ul class="right">
+                    <li><a href="https://ko-kr.facebook.com/amorepacific.recruit/" class="face"></a></li>
+                    <li><a href="https://www.instagram.com/amorepacific.official/?hl=ko" class="insta"></a></li>
+                    <li><a href="https://www.youtube.com/channel/UCHf_OkbtayzcO5XB06F_gLw" class="utube"></a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="ftWrap">
+            <ul class="ftlink">
+                <li><a href="#">개인정보처리방침</a></li> 
+                <li class="menuDivide">|</li>
+                <li><a href="#" class="port">임직원 포털</a></li>
+            </ul>
+            <p class="copyright">
+                서울 용산구 한강대로 100 아모레퍼시픽<br>
+                © AMOREPACIFIC Corporation. All Rights Reserved.
+            </p>
+            <p class="ftLogo">
+                <a href="index.html">
+                    <img src="./source/footer_logo.png" alt="푸터로고">
+                </a>
+            </p>
+            <a href="#" class="wa">
+                <img src="./source/wa.png" alt="웹접근성">
+            </a>
+        </div>
+    </footer>
+</div>
+<div class="pageNation">
+    <a class="pageBtn act" data-val="0"></a>
+    <a class="pageBtn" data-val="1"></a>
+    <a class="pageBtn" data-val="2"></a>
+    <a class="pageBtn" data-val="3"></a>
+    <a class="pageBtn" data-val="4"></a>
+</div>
+<a href="#" id="toTop" style="display: none;"></a>
+
+</body>
+</body>
+</html>
